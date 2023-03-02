@@ -12,7 +12,7 @@ BlackthornGym2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_STONETABLE, .SetUpStoneTable
+	callback MAPCALLBACK_STONETABLE, BlackthornGym2FSetUpStoneTableCallback
 
 BlackthornGym2FSetUpStoneTableCallback:
 	usestonetable .StoneTable
