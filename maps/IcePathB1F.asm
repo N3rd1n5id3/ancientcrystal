@@ -9,7 +9,7 @@ IcePathB1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_STONETABLE, .SetUpStoneTable
+	callback MAPCALLBACK_STONETABLE, IcePathB1FSetUpStoneTableCallback
 
 IcePathB1FSetUpStoneTableCallback:
 	usestonetable .StoneTable
