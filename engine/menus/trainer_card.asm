@@ -107,6 +107,10 @@ TrainerCard_Page1_LoadGFX:
 	ld d, 6
 	call TrainerCard_InitBorder
 	call WaitBGMap
+	ld b, SCGB_TRAINER_CARD
+	call GetSGBLayout
+	call SetPalettes
+	call WaitBGMap
 	ld de, CardStatusGFX
 	ld hl, vTiles2 tile $29
 	lb bc, BANK(CardStatusGFX), 86
@@ -134,10 +138,15 @@ TrainerCard_Page2_LoadGFX:
 	ld d, 6
 	call TrainerCard_InitBorder
 	call WaitBGMap
+	ld b, SCGB_TRAINER_CARD
+	call GetSGBLayout
+	call SetPalettes
+	call WaitBGMap
 	ld de, LeaderGFX
 	ld hl, vTiles2 tile $29
 	lb bc, BANK(LeaderGFX), 86
 	call Request2bpp
+	ld hl, TrainerCard_JohtoBadgesOAM
 	ld de, BadgeGFX
 	ld hl, vTiles0 tile $00
 	lb bc, BANK(BadgeGFX), 44
@@ -187,10 +196,15 @@ TrainerCard_Page3_LoadGFX:
 	ld d, 6
 	call TrainerCard_InitBorder
 	call WaitBGMap
+	ld b, SCGB_TRAINER_CARD_KANTO
+	call GetSGBLayout
+	call SetPalettes
+	call WaitBGMap
 	ld de, LeaderGFX2
 	ld hl, vTiles2 tile $29
 	lb bc, BANK(LeaderGFX2), 86
 	call Request2bpp
+	ld hl, TrainerCard_KantoBadgesOAM
 	ld de, BadgeGFX2
 	ld hl, vTiles0 tile $00
 	lb bc, BANK(BadgeGFX2), 44
@@ -200,7 +214,7 @@ TrainerCard_Page3_LoadGFX:
 	ret
 
 TrainerCard_Page3_Joypad:
-	ld hl, TrainerCard_JohtoBadgesOAM
+	ld hl, TrainerCard_KantoBadgesOAM
 	call TrainerCard_Page2_3_AnimateBadges
 	ld hl, hJoyLast
 	ld a, [hl]
@@ -303,6 +317,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	db $29, $2a, $2b, $2c, $2d, -1
 
 TrainerCard_Page2_3_InitObjectsAndStrings:
+	push hl
 	hlcoord 2, 8
 	ld de, .BadgesTilemap
 	call TrainerCardSetup_PlaceTilemapString
@@ -328,7 +343,7 @@ endr
 	jr nz, .loop2
 	xor a
 	ld [wTrainerCardBadgeFrameCounter], a
-	ld hl, TrainerCard_JohtoBadgesOAM
+	pop hl
 	call TrainerCard_Page2_3_OAMUpdate
 	ret
 
