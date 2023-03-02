@@ -180,7 +180,7 @@ TrainerCard_Page2_Joypad:
 	ld [wJumptableIndex], a
 	ret
 
-.pressed_right_a
+.pressed_right
 	ld a, TRAINERCARDSTATE_PAGE3_LOADGFX
 	ld [wJumptableIndex], a
 	ret
@@ -222,7 +222,6 @@ TrainerCard_Page3_Joypad:
 	jr nz, .pressed_a
 	ld a, [hl]
 	and D_LEFT
-	jr nz, .right
 	ret
 
 .pressed_left
