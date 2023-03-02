@@ -160,8 +160,8 @@ TrainerCard_Page2_Joypad:
 	call TrainerCard_Page2_3_AnimateBadges
 	ld hl, hJoyLast
 	ld a, [hl]
-	and D_LEFT
-	jr nz, .pressed_left
+	and D_RIGHT
+	jr nz, .pressed_right
 	ld a, [wKantoBadges]
 	and a
 	jr nz, .has_kanto_badges
@@ -221,7 +221,7 @@ TrainerCard_Page3_Joypad:
 	and A_BUTTON
 	jr nz, .pressed_a
 	ld a, [hl]
-	and D_RIGHT
+	and D_LEFT
 	jr nz, .right
 	ret
 
