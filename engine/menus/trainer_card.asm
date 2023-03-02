@@ -172,7 +172,7 @@ TrainerCard_Page2_Joypad:
 .has_kanto_badges
 	ld a, [hl]
 	and D_RIGHT | A_BUTTON
-	jr nz, .pressed_right_a
+	jr nz, .pressed_right
 	ret
 
 .pressed_left
