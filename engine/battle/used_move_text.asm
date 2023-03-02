@@ -33,7 +33,7 @@ UsedMoveText:
 	jr nz, .ok
 
 	; update last move
-	ld a, [wTempByteValue]
+	ld a, [wMoveGrammar]
 	ld [hl], a
 	ld [de], a
 
@@ -54,6 +54,13 @@ UsedMoveInsteadText:
 
 .UsedInsteadText:
 	text_far _UsedInsteadText
+	text_asm
+.GetMoveNameText:
+	ld hl, MoveNameText
+	ret
+
+MoveNameText:
+	text_far _MoveNameText
 	text_end
 
 UpdateUsedMoves:
