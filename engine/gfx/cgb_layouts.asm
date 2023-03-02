@@ -720,7 +720,7 @@ _CGB_TrainerCard:
 	ldh [hCGBPalUpdate], a
 	ret
 	
-	_CGB_TrainerCardKanto:
+_CGB_TrainerCardKanto:
 	ld de, wBGPals1
 	xor a ; CHRIS & MISTY
 	call GetTrainerPalettePointer
