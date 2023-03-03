@@ -1166,14 +1166,14 @@ TitleScreenMain:
 	cp  D_UP + B_BUTTON + SELECT
 	jr z, .delete_save_data
 
-; To bring up the clock reset dialog, press Down + B + Select.
+; To bring up the clock reset dialog, press Down + B
 	ldh a, [hClockResetTrigger]
 	cp $34
 	jr z, .reset_clock
 
 	ld a, [hl]
-	and D_DOWN + B_BUTTON + SELECT
-	cp  D_DOWN + B_BUTTON + SELECT
+	and D_DOWN + B_BUTTON
+	cp  D_DOWN + B_BUTTON
 	jr nz, .check_start
 
 	ld a, $34
