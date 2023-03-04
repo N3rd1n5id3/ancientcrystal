@@ -9,3 +9,4 @@
 * Kurt finishes Apricorn Pokeballs instantly
 * Smashing rocks has a chance to contain items
 * Unique colors for each thrown Poké Ball
+* Added Helix Fossil, Domo Fossil, Old Amber, Fossil Egg and restored Pewter museum.
