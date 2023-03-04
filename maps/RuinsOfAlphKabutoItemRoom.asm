@@ -9,10 +9,10 @@ RuinsOfAlphKabutoItemRoom_MapScripts:
 
 	def_callbacks
 
-RuinsOfAlphKabutoItemRoomBerry:
+RuinsOfAlphKabutoItemRoomDomoFossil:
 	itemball DOMO_FOSSIL
 
-RuinsOfAlphKabutoItemRoomPsncureberry:
+RuinsOfAlphKabutoItemRoomMysteryberry:
 	itemball MYSTERYBERRY
 
 RuinsOfAlphKabutoItemRoomHealPowder:
