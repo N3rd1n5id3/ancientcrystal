@@ -9,7 +9,7 @@ RuinsOfAlphOmanyteItemRoom_MapScripts:
 
 	def_callbacks
 
-RuinsOfAlphOmanyteItemRoomMysteryberry:
+RuinsOfAlphOmanyteItemRoomHelixFossil:
 	itemball HELIX_FOSSIL
 
 RuinsOfAlphOmanyteItemRoomMysticWater:
