@@ -8,3 +8,4 @@
 * Removed the artificial save delay
 * Kurt finishes Apricorn Pokeballs instantly
 * Smashing rocks has a chance to contain items
+* Unique colors for each thrown Poké Ball
