@@ -9,8 +9,8 @@ RuinsOfAlphAerodactylItemRoom_MapScripts:
 
 	def_callbacks
 
-RuinsOfAlphAerodactylItemRoomgGoldBerry:
-	itemball OLD_AMBER
+RuinsOfAlphAerodactylItemRoomGoldBerry:
+	itemball GOLD_BERRY
 
 RuinsOfAlphAerodactylItemRoomMoonStone:
 	itemball MOON_STONE
