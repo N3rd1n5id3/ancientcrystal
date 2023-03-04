@@ -13,7 +13,7 @@ RuinsOfAlphKabutoItemRoomBerry:
 	itemball DOMO_FOSSIL
 
 RuinsOfAlphKabutoItemRoomPsncureberry:
-	itemball PSNCUREBERRY
+	itemball MYSTERYBERRY
 
 RuinsOfAlphKabutoItemRoomHealPowder:
 	itemball HEAL_POWDER
