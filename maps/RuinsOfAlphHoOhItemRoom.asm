@@ -9,7 +9,7 @@ RuinsOfAlphHoOhItemRoom_MapScripts:
 
 	def_callbacks
 
-RuinsOfAlphHoOhItemRoomGoldBerry:
+RuinsOfAlphHoOhItemRoomFossilEgg:
 	itemball FOSSIL_EGG
 
 RuinsOfAlphHoOhItemRoomMysteryberry:
