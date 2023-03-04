@@ -7,3 +7,4 @@
 * Clock reset (D-Pad Down + B buttons on title screen)
 * Removed the artificial save delay
 * Kurt finishes Apricorn Pokeballs instantly
+* Smashing rocks has a chance to contain items
