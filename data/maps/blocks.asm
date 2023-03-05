@@ -363,11 +363,11 @@ SaffronPokecenter1F_Blocks:
 CherrygrovePokecenter1F_Blocks:
 	INCBIN "maps/Pokecenter1F.blk"
 
-BetaPewterMuseumOfScience1F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaPewterMuseumOfScience1F.blk"
+PewterMuseumOfScience1F_Blocks:
+	INCBIN "maps/PewterMuseumOfScience1F.blk"
 
-BetaPewterMuseumOfScience2F_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaPewterMuseumOfScience2F.blk"
+PewterMuseumOfScience2F_Blocks:
+	INCBIN "maps/PewterMuseumOfScience2F.blk"
 
 EarlsPokemonAcademy_Blocks:
 	INCBIN "maps/EarlsPokemonAcademy.blk"
