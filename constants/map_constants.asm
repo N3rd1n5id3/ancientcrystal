@@ -312,6 +312,8 @@ ENDM
 	map_const PEWTER_POKECENTER_1F,                         5,  4 ;  6
 	map_const PEWTER_POKECENTER_2F_BETA,                    8,  4 ;  7
 	map_const PEWTER_SNOOZE_SPEECH_HOUSE,                   4,  4 ;  8
+	map_const PEWTER_MUSEUM_OF_SCIENCE_1F                  10,  4 ;  9
+	map_const PEWTER_MUSEUM_OF_SCIENCE_2F                   7,  4 ; 10
 	endgroup
 
 	newgroup FAST_SHIP                                            ; 15
@@ -501,4 +503,4 @@ ENDM
 	map_const ROUTE_31_VIOLET_GATE,                         5,  4 ; 11
 	endgroup
 
-DEF NUM_MAP_GROUPS EQU const_value ; 26
+DEF NUM_MAP_GROUPS EQU const_value ; 28
