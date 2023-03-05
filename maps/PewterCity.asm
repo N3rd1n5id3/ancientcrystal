@@ -45,8 +45,8 @@ PewterCitySign:
 PewterGymSign:
 	jumptext PewterGymSignText
 
-PewterMuseumSign:
-	jumptext PewterMuseumSignText
+PewterMuseumOfScienceSign:
+	jumptext PewterMuseumOfScienceSignText
 
 PewterCityMtMoonGiftShopSign:
 	jumptext PewterCityMtMoonGiftShopSignText
@@ -128,13 +128,12 @@ PewterGymSignText:
 	line "#MON Trainer"
 	done
 
-PewterMuseumSignText:
+PewterMuseumOfScienceSignText:
 	text "There's a notice"
 	line "here…"
 
 	para "PEWTER MUSEUM OF"
-	line "SCIENCE is closed"
-	cont "for renovations…"
+	line "SCIENCE"
 	done
 
 PewterCityMtMoonGiftShopSignText:
@@ -159,13 +158,15 @@ PewterCity_MapEvents:
 	warp_event 23, 17, PEWTER_MART, 2
 	warp_event 13, 25, PEWTER_POKECENTER_1F, 1
 	warp_event  7, 29, PEWTER_SNOOZE_SPEECH_HOUSE, 1
+	warp_event 14,  7, PEWTER_MUSEUM_OF_SCIENCE_1F, 1
+	warp_event 19,  5, PEWTER_MUSEUM_OF_SCIENCE_1F, 3
 
 	def_coord_events
 
 	def_bg_events
 	bg_event 25, 23, BGEVENT_READ, PewterCitySign
 	bg_event 11, 17, BGEVENT_READ, PewterGymSign
-	bg_event 15,  9, BGEVENT_READ, PewterMuseumSign
+	bg_event 15,  9, BGEVENT_READ, PewterMuseumOfScienceSign
 	bg_event 33, 19, BGEVENT_READ, PewterCityMtMoonGiftShopSign
 	bg_event 19, 29, BGEVENT_READ, PewterCityWelcomeSign
 	bg_event 14, 25, BGEVENT_READ, PewterCityPokecenterSign
