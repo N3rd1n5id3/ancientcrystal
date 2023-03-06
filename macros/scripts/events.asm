@@ -795,13 +795,13 @@ MACRO reloadmappart
 ENDM
 
 	const usestonetable_command ; $7d
-usestonetable: MACRO
+MACRO usestonetable
 	db usestonetable_command
 	dw \1 ; stonetable_pointer
 ENDM
 
 	const clearstonetable_command ; $7e
-clearstonetable: MACRO
+MACRO clearstonetable
 	db clearstonetable_command
 ENDM
 
@@ -1065,7 +1065,7 @@ MACRO checksave
 ENDM
 
 	const trainerpic_command
-trainerpic: MACRO
+MACRO trainerpic
 	db trainerpic_command
 	db \1 ; trainer
 ENDM
