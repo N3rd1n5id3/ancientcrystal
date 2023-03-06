@@ -1,11 +1,11 @@
-object_const_def
+	object_const_def
 
 PewterMuseumOfScience1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	
-GlobalTerminal1F_MapEvents:
+
+PewterMuseumOfScience1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
