@@ -103,7 +103,7 @@ Museum1FFossilScientistScript:
 	ifequal $2, ResurrectDomeFossil
 	ifequal $3, ResurrectOldAmber
 .maybe_later:
-	jumpopenedtext MaybeLaterText
+	jumptext MaybeLaterText
 
 HelixDomeMenuDataHeader:
 	db $40 ; flags
