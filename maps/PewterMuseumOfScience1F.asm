@@ -43,7 +43,7 @@ Museum1FFossilScientistScript:
 	iftrue .own_dome
 	checkitem OLD_AMBER
 	iftrue .ask_old_amber
-	jumpopenedtext NoFossilsText
+	jumptext NoFossilsText
 
 .own_helix
 	checkitem DOME_FOSSIL
