@@ -9,13 +9,13 @@ PewterMuseumOfScience2F_MapScriptHeader:
 	def_coord_events
 
 	def_bg_events
-	bg_event  3,  6, BGEVENT_READ, Museum2FMoonStoneSignpostScript
-	bg_event 11,  2, BGEVENT_JUMPTEXT, Museum2FSpaceShuttleSignpostText
+	bg_event  2,  3, BGEVENT_READ, Museum2FMoonStoneSignpostScript
+	bg_event  2,  6, BGEVENT_READ, OmastarFossilSignpostScript
 
 	def_object_events
 	object_event  7,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Museum2FScientistText, -1
-	object_event  1,  7, SPRITE_CHILD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Museum2FChildText, -1
-	object_event  2,  7, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_COMMAND, jumptextfaceplayer, Museum2FTeacherText, -1
+	object_event  0,  6, SPRITE_CHILD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_COMMAND, jumptextfaceplayer, Museum2FChildText, -1
+	object_event  1,  7, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_COMMAND, jumptextfaceplayer, Museum2FTeacherText, -1
 	object_event  2,  1, SPRITE_CUTE_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_COMMAND, jumptextfaceplayer, Museum2FLassText, -1
 	object_event 12,  5, SPRITE_HIKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Museum2FPokefanMScript, -1
 
@@ -172,7 +172,17 @@ Museum2FMoonStoneSignpostText:
 	line "fell on Mt.Moon."
 	cont "(Moon Stone)"
 	done
+		
+OmastarFossilSignpostScript:
+	refreshscreen
+	trainerpic OMASTAR_FOSSIL
+	waitbutton
+	closepokepic
+	jumpthistext
 
-Museum2FSpaceShuttleSignpostText:
-	text "Space Shuttle"
+	text "Omastar Fossil"
+	line "(Helix)"
+
+	para "A primitive and"
+	line "rare #mon."
 	done
