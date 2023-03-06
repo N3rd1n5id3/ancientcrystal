@@ -2354,6 +2354,46 @@ Script_checkver_duplicate: ; unreferenced
 	ld a, [.gs_version]
 	ld [wScriptVar], a
 	ret
+	
+Script_trainerpic:
+	call GetScriptByte
+	and a
+	jr nz, .ok
+	ldh a, [hScriptVar]
+.ok
+	ld [wTrainerClass], a
+	farjp Trainerpic
+	
+Script_jumpopenedtext:
+	call _GetTextPointer
+	jr _Do_jumpopenedtext
 
+Script_iffalse_jumpopenedtext:
+	ldh a, [hScriptVar]
+	and a
+	jmp nz, SkipTwoScriptBytes
+	; fallthrough
+	
+Script_jumpthistext:
+	call _GetThisTextPointer
+_Do_jumptext:
+	ld b, BANK(JumpTextScript)
+	ld hl, JumpTextScript
+	jmp ScriptJump
+	
+Script_jumpthistextfaceplayer:
+	call _GetThisTextPointer
+_Do_textfaceplayer:
+	ld b, BANK(JumpTextFacePlayerScript)
+	ld hl, JumpTextFacePlayerScript
+	jmp ScriptJump
+	
+Script_jumpthisopenedtext:
+	call _GetThisTextPointer
+_Do_jumpopenedtext:
+	ld b, BANK(JumpOpenedTextScript)
+	ld hl, JumpOpenedTextScript
+	jmp ScriptJump
+	
 .gs_version:
 	db GS_VERSION
