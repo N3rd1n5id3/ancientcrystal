@@ -20,10 +20,6 @@ PewterMuseumOfScience2F_MapScriptHeader:
 
 
 Museum2FMoonStoneSignpostScript:
-	refreshscreen
-	trainerpic METEORITE
-	waitbutton
-	closepokepic
 	jumptext Museum2FMoonStoneSignpostText
 
 Museum2FScientistText:
@@ -79,11 +75,6 @@ Museum2FMoonStoneSignpostText:
 	done
 		
 OmastarFossilSignpostScript:
-	refreshscreen
-	trainerpic OMASTAR_FOSSIL
-	waitbutton
-	closepokepic
-	jumpthistext
 
 	text "Omastar Fossil"
 	line "(Helix)"
