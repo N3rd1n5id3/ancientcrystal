@@ -234,6 +234,12 @@ ScriptCommandTable:
 	dw Script_getname                    ; a7
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
+	dw Script_trainerpic                 ; aa
+	dw Script_jumpopenedtext             ; ab
+	dw Script_iffalse_jumpopenedtext     ; ac
+	dw Script_jumpthistext               ; ad
+	dw Script_jumpthistextfaceplayer     ; ae
+	dw Script_jumpthisopenedtext         ; af
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
