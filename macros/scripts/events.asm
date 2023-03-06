@@ -1070,6 +1070,18 @@ MACRO trainerpic
 	db \1 ; trainer
 ENDM
 
+	const jumpopenedtext_command
+MACRO jumpopenedtext
+	db jumpopenedtext_command
+	dw \1 ; text_pointer
+ENDM
+
+	const iffalse_jumpopenedtext_command
+MACRO iffalse_jumpopenedtext
+	db iffalse_jumpopenedtext_command
+	dw \1 ; text_pointer
+ENDM
+
 	const jumpthistext_command
 MACRO jumpthistext
 	db jumpthistext_command
