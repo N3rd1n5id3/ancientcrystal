@@ -229,12 +229,6 @@ Museum1FReceptionistScript:
 	done
 
 KabutopsFossilSignpostScript:
-	refreshscreen
-	trainerpic KABUTOPS_FOSSIL
-	waitbutton
-	closepokepic
-	jumpthistext
-
 	text "Kabutops Fossil"
 	line "(Dome)"
 
@@ -243,12 +237,6 @@ KabutopsFossilSignpostScript:
 	done
 
 AerodactylFossilSignpostScript:
-	refreshscreen
-	trainerpic AERODACTYL_FOSSIL
-	waitbutton
-	closepokepic
-	jumpthistext
-
 	text "Aerodactyl Fossil"
 
 	para "A primitive and"
