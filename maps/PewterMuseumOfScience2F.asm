@@ -5,7 +5,7 @@ PewterMuseumOfScience2F_MapScripts:
 
 	def_callbacks
 
-PewterMuseumOfScience12_MapEvents:
+PewterMuseumOfScience2F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
