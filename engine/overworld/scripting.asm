@@ -2362,7 +2362,7 @@ Script_trainerpic:
 	ldh a, [hScriptVar]
 .ok
 	ld [wTrainerClass], a
-	farjp Trainerpic
+	farcall Trainerpic
 	
 Script_jumpopenedtext:
 	call _GetTextPointer
@@ -2371,7 +2371,7 @@ Script_jumpopenedtext:
 Script_iffalse_jumpopenedtext:
 	ldh a, [hScriptVar]
 	and a
-	jmp nz, SkipTwoScriptBytes
+	jp nz, SkipTwoScriptBytes
 	; fallthrough
 	
 Script_jumpthistext:
@@ -2379,21 +2379,21 @@ Script_jumpthistext:
 _Do_jumptext:
 	ld b, BANK(JumpTextScript)
 	ld hl, JumpTextScript
-	jmp ScriptJump
+	jp ScriptJump
 	
 Script_jumpthistextfaceplayer:
 	call _GetThisTextPointer
 _Do_textfaceplayer:
 	ld b, BANK(JumpTextFacePlayerScript)
 	ld hl, JumpTextFacePlayerScript
-	jmp ScriptJump
+	jp ScriptJump
 	
 Script_jumpthisopenedtext:
 	call _GetThisTextPointer
 _Do_jumpopenedtext:
 	ld b, BANK(JumpOpenedTextScript)
 	ld hl, JumpOpenedTextScript
-	jmp ScriptJump
+	jp ScriptJump
 	
 .gs_version:
 	db GS_VERSION
