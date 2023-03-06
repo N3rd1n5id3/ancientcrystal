@@ -189,8 +189,8 @@ ScriptCommandTable:
 	dw Script_changeblock                ; 7a
 	dw Script_reloadmap                  ; 7b
 	dw Script_reloadmappart              ; 7c
-	dw Script_usestonetable              ; 7d
-	dw Script_clearstonetable            ; 7e
+	dw Script_writecmdqueue              ; 7d
+	dw Script_delcmdqueue                ; 7e
 	dw Script_playmusic                  ; 7f
 	dw Script_encountermusic             ; 80
 	dw Script_musicfadeout               ; 81
@@ -234,12 +234,6 @@ ScriptCommandTable:
 	dw Script_getname                    ; a7
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
-	dw Script_trainerpic                 ; aa
-	dw Script_jumpopenedtext             ; ab
-	dw Script_iffalse_jumpopenedtext     ; ac
-	dw Script_jumpthistext               ; ad
-	dw Script_jumpthistextfaceplayer     ; ae
-	dw Script_jumpthisopenedtext         ; af
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2118,17 +2112,25 @@ Script_dontrestartmapmusic:
 	ld [wDontPlayMapMusicOnReload], a
 	ret
 
-Script_usestonetable:
+Script_writecmdqueue:
 	call GetScriptByte
-	ld [wStoneTableAddress], a
+	ld e, a
 	call GetScriptByte
-	ld [wStoneTableAddress+1], a
+	ld d, a
+	ld a, [wScriptBank]
+	ld b, a
+	farcall WriteCmdQueue ; no need to farcall
 	ret
 
-Script_clearstonetable:
+Script_delcmdqueue:
 	xor a
-	ld [wStoneTableAddress], a
-	ld [wStoneTableAddress+1], a
+	ld [wScriptVar], a
+	call GetScriptByte
+	ld b, a
+	farcall DelCmdQueue ; no need to farcall
+	ret c
+	ld a, TRUE
+	ld [wScriptVar], a
 	ret
 
 Script_changemapblocks:
@@ -2354,46 +2356,6 @@ Script_checkver_duplicate: ; unreferenced
 	ld a, [.gs_version]
 	ld [wScriptVar], a
 	ret
-	
-Script_trainerpic:
-	call GetScriptByte
-	and a
-	jr nz, .ok
-	ldh a, [hScriptVar]
-.ok
-	ld [wTrainerClass], a
-	farcall Trainerpic
-	
-Script_jumpopenedtext:
-	call _GetTextPointer
-	jr _Do_jumpopenedtext
 
-Script_iffalse_jumpopenedtext:
-	ldh a, [hScriptVar]
-	and a
-	jp nz, SkipTwoScriptBytes
-	; fallthrough
-	
-Script_jumpthistext:
-	call _GetThisTextPointer
-_Do_jumptext:
-	ld b, BANK(JumpTextScript)
-	ld hl, JumpTextScript
-	jp ScriptJump
-	
-Script_jumpthistextfaceplayer:
-	call _GetThisTextPointer
-_Do_textfaceplayer:
-	ld b, BANK(JumpTextFacePlayerScript)
-	ld hl, JumpTextFacePlayerScript
-	jp ScriptJump
-	
-Script_jumpthisopenedtext:
-	call _GetThisTextPointer
-_Do_jumpopenedtext:
-	ld b, BANK(JumpOpenedTextScript)
-	ld hl, JumpOpenedTextScript
-	jp ScriptJump
-	
 .gs_version:
 	db GS_VERSION
