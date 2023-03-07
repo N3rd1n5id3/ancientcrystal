@@ -2358,7 +2358,7 @@ Script_fossilpic:
 	ld a, [wScriptVar]
 .ok
 	ld [wCurPartySpecies], a
-	farcall Fossilpic
+	farcall fossilpic
 	ret
 	
 Script_jumpopenedtext:
@@ -2366,7 +2366,7 @@ Script_jumpopenedtext:
 	jr _Do_jumpopenedtext
 	
 Script_iffalse_jumpopenedtext:
-	ldh a, [hScriptVar]
+	ldh a, [wScriptVar]
 	and a
 	jp nz, SkipTwoScriptBytes
 	; fallthrough
