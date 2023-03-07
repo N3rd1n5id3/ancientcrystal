@@ -195,6 +195,20 @@ DomeAmberMenuDataHeader:
 	db "Dome Fossil@"
 	db "Old Amber@"
 	db "Cancel@"
+	
+AmberEggMenuDataHeader
+        db $40 ; flags
+	db 04, 00 ; start coords
+	db 11, 14 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 3 ; items
+	db "Old Amber@"
+	db "Fossil Egg@"
+	db "Cancel@"
 
 HelixDomeAmberMenuDataHeader:
 	db $40 ; flags
@@ -209,6 +223,37 @@ HelixDomeAmberMenuDataHeader:
 	db "Helix Fossil@"
 	db "Dome Fossil@"
 	db "Old Amber@"
+	db "Cancel@"
+	
+DomeAmberEggDataHeader
+	db $40 ; flags
+	db 02, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 4 ; items
+	db "Dome Fossil@"
+	db "Old Amber@"
+	db "Fossil Egg@"
+	db "Cancel@"
+	
+HelixDomeAmberEggMenuDataHeader
+        db $40 ; flags
+	db 02, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 4 ; items
+	db "Helix Fossil@"
+	db "Dome Fossil@"
+	db "Old Amber@"
+	db "Fossil Egg@"
 	db "Cancel@"
 
 ResurrectHelixFossil:
