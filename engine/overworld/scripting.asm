@@ -235,6 +235,10 @@ ScriptCommandTable:
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
 	dw Script_fossilpic                  ; b0
+	dw Script_jumpopenedtext             ; b1
+	dw Script_iffalse_jumpopenedtext     ; b2
+	dw Script_jumpthistext               ; b3
+	dw Script_jumpthistextfaceplayer     ; b4
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2359,6 +2363,31 @@ Script_fossilpic:
 	ld [wCurPartySpecies], a
 	farcall Fossilpic
 	ret
+	
+Script_jumpopenedtext:
+	call _GetTextPointer
+	jr _Do_jumpopenedtext
+	
+Script_iffalse_jumpopenedtext:
+	ldh a, [hScriptVar]
+	and a
+	jmp nz, SkipTwoScriptBytes
+	; fallthrough
+	
+Script_jumpthistext:
+	call _GetThisTextPointer
+_Do_jumptext:
+	ld b, BANK(JumpTextScript)
+	ld hl, JumpTextScript
+	jmp ScriptJump
+	
+Script_jumpthistextfaceplayer:
+	call _GetThisTextPointer
+_Do_textfaceplayer:
+	ld b, BANK(JumpTextFacePlayerScript)
+	ld hl, JumpTextFacePlayerScript
+	jmp ScriptJump
+
 
 .gs_version:
 	db GS_VERSION
