@@ -120,6 +120,20 @@ HelixDomeMenuDataHeader:
 	db $80 ; flags
 	db 3 ; items
 	db "Helix Fossil@"
+	db "Dome Fossil@"
+	db "Cancel@"
+
+HelixAmberMenuDataHeader:
+	db $40 ; flags
+	db 04, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 3 ; items
+	db "Helix Fossil@"
 	db "Old Amber@"
 	db "Cancel@"
 
