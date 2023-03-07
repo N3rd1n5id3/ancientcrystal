@@ -2358,7 +2358,7 @@ Script_fossilpic:
 	ld a, [wScriptVar]
 .ok
 	ld [wCurPartySpecies], a
-	farcall fossilpic
+	farcall Fossilpic
 	ret
 	
 Script_jumpopenedtext:
