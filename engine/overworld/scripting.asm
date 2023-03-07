@@ -240,6 +240,7 @@ ScriptCommandTable:
 	dw Script_jumpthistext               ; b3
 	dw Script_jumpthistextfaceplayer     ; b4
 	dw Script_jumpopenedtext             ; b5
+	dw Script_waitendtext                ; b6
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
