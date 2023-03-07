@@ -1097,7 +1097,7 @@ MACRO jumpthisopenedtext
 	db jumpthisopenedtext_command
 ENDM
 
-const waitendtext_command ; $b6
+        const waitendtext_command ; $b6
 MACRO waitendtext
 	db waitendtext_command
 ENDM
