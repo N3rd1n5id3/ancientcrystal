@@ -2351,11 +2351,6 @@ Script_checksave:
 	ld [wScriptVar], a
 	ret
 
-Script_checkver_duplicate: ; unreferenced
-	ld a, [.gs_version]
-	ld [wScriptVar], a
-	ret
-	
 Script_fossilpic:
 	call GetScriptByte
 	and a
@@ -2421,7 +2416,3 @@ _GetThisTextPointer:
 	
 Script_waitendtext:
 	call Script_waitbutton
-
-
-.gs_version:
-	db GS_VERSION
