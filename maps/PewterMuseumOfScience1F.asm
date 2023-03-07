@@ -106,8 +106,7 @@ Museum1FFossilScientistScript:
 	ifequal $1, ResurrectHelixFossil
 	ifequal $2, ResurrectDomeFossil
 	ifequal $3, ResurrectOldAmber
-.maybe_later:
-	jumptext MaybeLaterText
+        sjump .maybe_later
 
 .ask_amber_egg
         loadmenu AmberEggMenuDataHeader
