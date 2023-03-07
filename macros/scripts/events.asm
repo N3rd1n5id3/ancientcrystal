@@ -1097,4 +1097,10 @@ MACRO jumpthisopenedtext
 	db jumpthisopenedtext_command
 ENDM
 
+const waitendtext_command ; $b6
+MACRO waitendtext
+	db waitendtext_command
+ENDM
+
+
 DEF NUM_EVENT_COMMANDS EQU const_value
