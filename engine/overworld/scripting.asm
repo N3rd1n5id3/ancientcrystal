@@ -234,13 +234,6 @@ ScriptCommandTable:
 	dw Script_getname                    ; a7
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
-	dw Script_fossilpic                  ; b0
-	dw Script_jumpopenedtext             ; b1
-	dw Script_iffalse_jumpopenedtext     ; b2
-	dw Script_jumpthistext               ; b3
-	dw Script_jumpthistextfaceplayer     ; b4
-	dw Script_jumpopenedtext             ; b5
-	dw Script_waitendtext                ; b6
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2350,69 +2343,4 @@ Script_checksave:
 	ld a, c
 	ld [wScriptVar], a
 	ret
-
-Script_fossilpic:
-	call GetScriptByte
-	and a
-	jr nz, .ok
-	ld a, [wScriptVar]
-.ok
-	ld [wCurPartySpecies], a
-	farcall Fossilpic
-	ret
 	
-Script_jumpopenedtext:
-	call _GetTextPointer
-	jr _Do_jumpopenedtext
-	
-Script_iffalse_jumpopenedtext:
-	ldh a, [wScriptVar]
-	and a
-	jp nz, SkipTwoScriptBytes
-	; fallthrough
-	
-Script_jumpthistext:
-	call _GetThisTextPointer
-_Do_jumptext:
-	ld b, BANK(JumpTextScript)
-	ld hl, JumpTextScript
-	jp ScriptJump
-	
-Script_jumpthistextfaceplayer:
-	call _GetThisTextPointer
-_Do_textfaceplayer:
-	ld b, BANK(JumpTextFacePlayerScript)
-	ld hl, JumpTextFacePlayerScript
-	jp ScriptJump
-
-Script_jumpthisopenedtext:
-	call _GetThisTextPointer
-_Do_jumpopenedtext:
-	ld b, BANK(JumpOpenedTextScript)
-	ld hl, JumpOpenedTextScript
-	jp ScriptJump
-
-JumpOpenedTextScript:
-	repeattext -1, -1
-	waitendtext
-
-_GetTextPointer:
-	ld a, [wScriptBank]
-	ld [wScriptTextBank], a
-	call GetScriptByte
-	ld [wScriptTextAddr], a
-	call GetScriptByte
-	ld [wScriptTextAddr + 1], a
-	ret
-
-_GetThisTextPointer:
-	ld a, [wScriptBank]
-	ld [wScriptTextBank], a
-	ld a, [wScriptPos]
-	ld [wScriptTextAddr], a
-	ld a, [wScriptPos + 1]
-	ld [wScriptTextAddr + 1], a
-	ret
-	
-Script_waitendtext:
-	call Script_waitbutton
