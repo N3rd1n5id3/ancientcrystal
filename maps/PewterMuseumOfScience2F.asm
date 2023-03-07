@@ -46,7 +46,7 @@ PewterMuseumOfScience2F_MapEvents:
 	Museum2FMoonStoneSignpostScript:
 	faceplayer
 	opentext
-	writetext Museum2FMoonStoneSignposText
+	writetext Museum2FMoonStoneSignpostText
 	
 	OmastarFossilSignpostScript:
 	refreshscreen
