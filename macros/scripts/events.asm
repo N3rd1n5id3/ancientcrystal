@@ -1064,4 +1064,10 @@ MACRO checksave
 	db checksave_command
 ENDM
 
+const fossilpic_command ; $b0
+MACRO fossilpic
+	db fossilpic_command
+	db \1 ; fossil
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value
