@@ -2388,10 +2388,6 @@ _Do_textfaceplayer:
 	ld b, BANK(JumpTextFacePlayerScript)
 	ld hl, JumpTextFacePlayerScript
 	jp ScriptJump
-	
-Script_jumpopenedtext:
-	call _GetTextPointer
-	jr _Do_jumpopenedtext
 
 Script_jumpthisopenedtext:
 	call _GetThisTextPointer
