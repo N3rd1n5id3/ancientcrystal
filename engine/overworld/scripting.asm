@@ -234,6 +234,7 @@ ScriptCommandTable:
 	dw Script_getname                    ; a7
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
+	dw Script_fossilpic                  ; b0
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2347,6 +2348,16 @@ Script_checksave:
 Script_checkver_duplicate: ; unreferenced
 	ld a, [.gs_version]
 	ld [wScriptVar], a
+	ret
+	
+Script_fossilpic:
+	call GetScriptByte
+	and a
+	jr nz, .ok
+	ld a, [wScriptVar]
+.ok
+	ld [wCurPartySpecies], a
+	farcall Fossilpic
 	ret
 
 .gs_version:
