@@ -239,6 +239,7 @@ ScriptCommandTable:
 	dw Script_iffalse_jumpopenedtext     ; b2
 	dw Script_jumpthistext               ; b3
 	dw Script_jumpthistextfaceplayer     ; b4
+	dw Script_jumpopenedtext             ; b5
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -2387,6 +2388,43 @@ _Do_textfaceplayer:
 	ld b, BANK(JumpTextFacePlayerScript)
 	ld hl, JumpTextFacePlayerScript
 	jp ScriptJump
+	
+	Script_jumpopenedtext:
+	call _GetTextPointer
+	jr _Do_jumpopenedtext
+
+Script_jumpthisopenedtext:
+	call _GetThisTextPointer
+_Do_jumpopenedtext:
+	ld b, BANK(JumpOpenedTextScript)
+	ld hl, JumpOpenedTextScript
+	jmp ScriptJump
+
+JumpTextFacePlayerScript:
+	faceplayer
+JumpTextScript:
+	opentext
+JumpOpenedTextScript:
+	repeattext -1, -1
+	waitendtext
+
+_GetTextPointer:
+	ld a, [wScriptBank]
+	ld [wScriptTextBank], a
+	call GetScriptByte
+	ld [wScriptTextAddr], a
+	call GetScriptByte
+	ld [wScriptTextAddr + 1], a
+	ret
+
+_GetThisTextPointer:
+	ld a, [wScriptBank]
+	ld [wScriptTextBank], a
+	ld a, [wScriptPos]
+	ld [wScriptTextAddr], a
+	ld a, [wScriptPos + 1]
+	ld [wScriptTextAddr + 1], a
+	ret
 
 
 .gs_version:
