@@ -212,27 +212,16 @@ KabutopsFossilSignpostScript:
 	pokepic KABUTOPS
 	waitbutton
 	closepokepic
-	jumptext
-
-	text "Kabutops Fossil"
-	line "(Dome)"
-
-	para "A primitive and"
-	line "rare #mon."
-	done
+	opentext
+	writetext KabutopsFossilSignpostText
 
 AerodactylFossilSignpostScript:
 	refreshscreen
 	pokepic AERODACTYL
 	waitbutton
 	closepokepic
-	jumptext
-
-	text "Aerodactyl Fossil"
-
-	para "A primitive and"
-	line "rare #mon."
-	done
+	opentext
+	writetext AerodactylFossilSignpostText
 
 Museum1FScientistText:
 	text "We are proud of"
@@ -354,4 +343,20 @@ Museum1FReceptionistWelcome:
 Museum1FReceptionistSneak:
         text "You can't sneak"
 	line "in the back way!"
+	done
+	
+KabutopsFossilSignpostText:	
+        text "Kabutops Fossil"
+	line "(Dome)"
+
+	para "A primitive and"
+	line "rare #mon."
+	done
+	
+AerodactylFossilSignpostText:	
+	
+	text "Aerodactyl Fossil"
+
+	para "A primitive and"
+	line "rare #mon."
 	done
