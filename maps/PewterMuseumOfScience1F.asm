@@ -46,14 +46,14 @@ Museum1FFossilScientistScript:
 	checkitem DOME_FOSSIL
 	iftrue .own_dome
 	checkitem OLD_AMBER
-	iftrue .ask_old_amber
+	iftrue .own_old_amber
 	checkitem FOSSIL_EGG
 	iftrue .ask_fossil_egg
 	jumptext NoFossilsText
 
 .own_helix
 	checkitem DOME_FOSSIL
-	iftrue .own_helix_and_dome
+	iftrue .own_helix_dome
 	checkitem OLD_AMBER
 	iftrue .own_helix_dome_amber
 	checkitem FOSSIL_EGG
@@ -65,13 +65,29 @@ Museum1FFossilScientistScript:
 
 .own_dome
 	checkitem OLD_AMBER
-	iftrue .ask_dome_amber
+	iftrue .own_dome_amber
+	checkitem FOSSIL_EGG
+	iftrue .ask_dome_amber_egg
 	writetext AskDomeFossilText
 	yesorno
 	iftrue ResurrectDomeFossil
 	sjump .maybe_later
-
-.own_helix_and_dome
+	
+.own_old_amber
+        checkitem FOSSIL_EGG
+	iftrue .ask_amber_egg
+	writetext AskOldAmberText
+	yesorno
+	iftrue ResurrectOldAmber
+	sjump .maybe_later
+	
+.ask_fossil_egg
+        writetext AskOldAmberText
+	yesorno
+	iftrue ResurrectFossilEgg
+	sjump .maybe_later
+	
+.own_helix_dome
 	checkitem OLD_AMBER
 	iftrue .own_helix_dome_amber
 	loadmenu HelixDomeMenuDataHeader
@@ -84,11 +100,27 @@ Museum1FFossilScientistScript:
 .own_helix_dome_amber
         checkitem FOSSIL_EGG
 	iftrue .ask_helix_dome_amber_egg
+	loadmenu HelixDomeAmberMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, ResurrectHelixFossil
+	ifequal $2, ResurrectDomeFossil
+	ifequal $3, ResurrectOldAmber
+.maybe_later:
+	jumpopenedtext MaybeLaterText
 
-.ask_old_amber
-	writetext AskOldAmberText
+.ask_amber_egg
+        loadmenu AmberEggMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, ResurrectOldAmber
+	ifequal $2, ResurrectFossilEgg
+	sjump .maybe_later
+
+.ask_fossil_egg
+	writetext AskFossilEggText
 	yesorno
-	iftrue ResurrectOldAmber
+	iftrue ResurrectFossilEgg
 	sjump .maybe_later
 
 .ask_helix_amber
@@ -99,12 +131,23 @@ Museum1FFossilScientistScript:
 	ifequal $2, ResurrectOldAmber
 	sjump .maybe_later
 
-.ask_dome_amber
+.own_dome_amber
+	checkitem FOSSIL_EGG
+	iftrue .ask_dome_amber_egg
 	loadmenu DomeAmberMenuDataHeader
 	verticalmenu
 	closewindow
 	ifequal $1, ResurrectDomeFossil
 	ifequal $2, ResurrectOldAmber
+	sjump .maybe_later
+	
+.ask_dome_amber_egg
+        loadmenu DomeAmberEggDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, ResurrectDomeFossil
+	ifequal $2, ResurrectOldAmber
+	ifequal $3, ResurrectFossilEgg
 	sjump .maybe_later
 
 .ask_helix_dome_amber_egg
@@ -191,6 +234,11 @@ ResurrectOldAmber:
 	takeitem OLD_AMBER
 	scall ResurrectAFossilScript
 	givepoke AERODACTYL, 20
+	
+ResurrectFossilEgg:
+	takeitem FOSSIL_EGG
+	scall ResurrectAFossilScript
+	givepoke LARVITAR, 20
 FinishResurrect:
 	ifequal PARTY_LENGTH, NoRoomForFossilPokemonText
 	jumptext TakeGoodCareOfItText
@@ -320,6 +368,12 @@ AskOldAmberText:
 	text "Do you want to"
 	line "resurrect the"
 	cont "Old Amber?"
+	done
+	
+AskFossilEggText:
+	text "Do you want to"
+	line "resurrect the"
+	cont "Fossil Egg?"
 	done
 
 NoFossilsText:
