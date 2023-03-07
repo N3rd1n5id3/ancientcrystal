@@ -1070,4 +1070,26 @@ MACRO fossilpic
 	db \1 ; fossil
 ENDM
 
+	const jumpopenedtext_command ; $b1
+MACRO jumpopenedtext
+	db jumpopenedtext_command
+	dw \1 ; text_pointer
+ENDM
+
+	const iffalse_jumpopenedtext_command ; $b2
+MACRO iffalse_jumpopenedtext
+	db iffalse_jumpopenedtext_command
+	dw \1 ; text_pointer
+ENDM
+
+	const jumpthistext_command ; $b3
+MACRO jumpthistext
+	db jumpthistext_command
+ENDM
+
+	const jumpthistextfaceplayer_command ; $b4
+MACRO jumpthistextfaceplayer
+	db jumpthistextfaceplayer_command
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value
