@@ -197,26 +197,15 @@ Museum1FReceptionistScript:
 	readvar VAR_FACING
 	ifequal DOWN, .Sneak
 	ifequal LEFT, .Sneak
-	jumptextfaceplayer
-
-	text "Welcome!"
-
-	para "Thanks to a gene-"
-	line "rous donation"
-	cont "by Silph Co.,"
-
-	para "admission is free"
-	line "of charge!"
-
-	para "Please go ahead."
-	done
+	faceplayer
+	opentext
+	writetext Museum1FReceptionistWelcome
+	waitbutton
+	closetext
+	end
 
 .Sneak:
-	jumptextfaceplayer
-
-	text "You can't sneak"
-	line "in the back way!"
-	done
+	jumptextfaceplayer Museum1FReceptionistSneak
 
 KabutopsFossilSignpostScript:
 	refreshscreen
@@ -347,4 +336,22 @@ NoRoomForFossilPokemonText:
 TakeGoodCareOfItText:
 	text "Take good care"
 	line "of it!"
+	done
+	
+Museum1FReceptionistWelcome:
+        text "Welcome!"
+
+	para "Thanks to a gene-"
+	line "rous donation"
+	cont "by Silph Co.,"
+
+	para "admission is free"
+	line "of charge!"
+
+	para "Please go ahead."
+	done
+	
+Museum1FReceptionistSneak:
+        text "You can't sneak"
+	line "in the back way!"
 	done
