@@ -47,7 +47,7 @@ Museum1FFossilScientistScript:
 	iftrue .own_dome
 	checkitem OLD_AMBER
 	iftrue .ask_old_amber
-	jumpopenedtext NoFossilsText
+	jumptext NoFossilsText
 
 .own_helix
 	checkitem DOME_FOSSIL
@@ -107,7 +107,7 @@ Museum1FFossilScientistScript:
 	ifequal $2, ResurrectDomeFossil
 	ifequal $3, ResurrectOldAmber
 .maybe_later:
-	jumpopenedtext MaybeLaterText
+	jumptext MaybeLaterText
 
 HelixDomeMenuDataHeader:
 	db $40 ; flags
@@ -170,7 +170,7 @@ ResurrectOldAmber:
 	givepoke AERODACTYL, 20
 FinishResurrect:
 	iffalse_jumpopenedtext NoRoomForFossilPokemonText
-	jumpopenedtext TakeGoodCareOfItText
+	jumptext TakeGoodCareOfItText
 
 ResurrectAFossilScript:
 	writetext ResurrectingPokemonText
