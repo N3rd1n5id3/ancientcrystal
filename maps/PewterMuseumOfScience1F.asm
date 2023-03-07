@@ -169,7 +169,7 @@ ResurrectOldAmber:
 	scall ResurrectAFossilScript
 	givepoke AERODACTYL, 20
 FinishResurrect:
-	iffalse_jumpopenedtext NoRoomForFossilPokemonText
+	ifequal PARTY_LENGTH, NoRoomForFossilPokemonText
 	jumptext TakeGoodCareOfItText
 
 ResurrectAFossilScript:
@@ -197,7 +197,7 @@ Museum1FReceptionistScript:
 	readvar VAR_FACING
 	ifequal DOWN, .Sneak
 	ifequal LEFT, .Sneak
-	jumpthistextfaceplayer
+	jumptextfaceplayer
 
 	text "Welcome!"
 
@@ -212,7 +212,7 @@ Museum1FReceptionistScript:
 	done
 
 .Sneak:
-	jumpthistextfaceplayer
+	jumptextfaceplayer
 
 	text "You can't sneak"
 	line "in the back way!"
@@ -223,7 +223,7 @@ KabutopsFossilSignpostScript:
 	pokepic KABUTOPS
 	waitbutton
 	closepokepic
-	jumpthistext
+	jumptext
 
 	text "Kabutops Fossil"
 	line "(Dome)"
@@ -237,7 +237,7 @@ AerodactylFossilSignpostScript:
 	pokepic AERODACTYL
 	waitbutton
 	closepokepic
-	jumpthistext
+	jumptext
 
 	text "Aerodactyl Fossil"
 
