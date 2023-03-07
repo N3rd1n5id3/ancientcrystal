@@ -14,8 +14,8 @@ PewterMuseumOfScience2F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  3,  6, BGEVENT_READ, Museum2FMoonStoneSignpostScript
-	bg_event  6,  3, BGEVENT_READ, OmastarFossilSignpostScript
+	bg_event  2,  6, BGEVENT_READ, Museum2FMoonStoneSignpostScript
+	bg_event  2,  3, BGEVENT_READ, OmastarFossilSignpostScript
 
 	def_object_events
 	object_event  7,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, jumptextfaceplayer, Museum2FScientistScript, -1
