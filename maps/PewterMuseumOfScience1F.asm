@@ -47,13 +47,17 @@ Museum1FFossilScientistScript:
 	iftrue .own_dome
 	checkitem OLD_AMBER
 	iftrue .ask_old_amber
+	checkitem FOSSIL_EGG
+	iftrue .ask_fossil_egg
 	jumptext NoFossilsText
 
 .own_helix
 	checkitem DOME_FOSSIL
 	iftrue .own_helix_and_dome
 	checkitem OLD_AMBER
-	iftrue .ask_helix_amber
+	iftrue .own_helix_dome_amber
+	checkitem FOSSIL_EGG
+	iftrue .ask_helix_dome_amber_egg
 	writetext AskHelixFossilText
 	yesorno
 	iftrue ResurrectHelixFossil
@@ -69,13 +73,17 @@ Museum1FFossilScientistScript:
 
 .own_helix_and_dome
 	checkitem OLD_AMBER
-	iftrue .ask_helix_dome_amber
+	iftrue .own_helix_dome_amber
 	loadmenu HelixDomeMenuDataHeader
 	verticalmenu
 	closewindow
 	ifequal $1, ResurrectHelixFossil
 	ifequal $2, ResurrectDomeFossil
 	sjump .maybe_later
+	
+.own_helix_dome_amber
+        checkitem FOSSIL_EGG
+	iftrue .ask_helix_dome_amber_egg
 
 .ask_old_amber
 	writetext AskOldAmberText
@@ -99,13 +107,14 @@ Museum1FFossilScientistScript:
 	ifequal $2, ResurrectOldAmber
 	sjump .maybe_later
 
-.ask_helix_dome_amber
-	loadmenu HelixDomeAmberMenuDataHeader
+.ask_helix_dome_amber_egg
+	loadmenu HelixDomeAmberEggMenuDataHeader
 	verticalmenu
 	closewindow
 	ifequal $1, ResurrectHelixFossil
 	ifequal $2, ResurrectDomeFossil
 	ifequal $3, ResurrectOldAmber
+	ifequal $4, ResurrectFossilEgg
 .maybe_later:
 	jumptext MaybeLaterText
 
