@@ -1092,4 +1092,9 @@ MACRO jumpthistextfaceplayer
 	db jumpthistextfaceplayer_command
 ENDM
 
+	const jumpthisopenedtext_command ; $b5
+MACRO jumpthisopenedtext
+	db jumpthisopenedtext_command
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value
