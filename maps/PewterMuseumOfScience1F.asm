@@ -20,12 +20,11 @@ PewterMuseumOfScience1F_MapEvents:
 	def_bg_events
 	bg_event  2,  3, BGEVENT_READ, KabutopsFossilSignpostScript
 	bg_event  3,  6, BGEVENT_READ, AerodactylFossilSignpostScript
-	bg_event 12,  1, BGEVENT_JUMPTEXT, Museum1FBookshelfSignpostText
-	bg_event 13,  1, BGEVENT_JUMPTEXT, Museum1FBookshelfSignpostText
-	bg_event 14,  1, BGEVENT_JUMPTEXT, Museum1FBookshelfSignpostText
-	bg_event 15,  1, BGEVENT_JUMPTEXT, Museum1FBookshelfSignpostText
-	bg_event 17,  1, BGEVENT_JUMPTEXT, Museum1FBookshelfSignpostText
-	bg_event 18,  1, BGEVENT_JUMPTEXT, Museum1FBookshelfSignpostText
+	bg_event 12,  1, BGEVENT_READ, Museum1FBookshelfSignpostText
+	bg_event 13,  1, BGEVENT_READ, Museum1FBookshelfSignpostText
+	bg_event 14,  1, BGEVENT_READ, Museum1FBookshelfSignpostText
+	bg_event 15,  1, BGEVENT_READ, Museum1FBookshelfSignpostText
+	bg_event 17,  1, BGEVENT_READ, Museum1FBookshelfSignpostText
 
 	def_object_events
 	object_event 18,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Museum1FFossilScientistScript, -1
