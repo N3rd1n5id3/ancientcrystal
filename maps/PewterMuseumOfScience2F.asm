@@ -43,6 +43,19 @@ PewterMuseumOfScience2F_MapEvents:
 	opentext
 	writetext Museum2FCooltrainerMText
 	
+	Museum2FMoonStoneSignpostScript:
+	faceplayer
+	opentext
+	writetext Museum2FMoonStoneSignposText
+	
+	OmastarFossilSignpostScript:
+	refreshscreen
+	pokepic OMASTAR
+	waitbutton
+	closepokepic
+	opentext
+	writetext OmastarFossilSignpostText
+	
 	Museum2FScientistText:
 	text "Meteorites struck"
 	line "Mt.Moon near"
@@ -92,3 +105,18 @@ PewterMuseumOfScience2F_MapEvents:
 	para "Seismic Toss,"
 	line "of course!"
 	done
+	
+	Museum2FMoonStoneSignpostText:
+	text "Meteorite that"
+	line "fell on Mt.Moon."
+	cont "(Moon Stone)"
+	done
+	
+	OmastarFossilSignpostText:
+	text "Omastar Fossil"
+	line "(Helix)"
+
+	para "A primitive and"
+	line "rare #mon."
+	done
+
