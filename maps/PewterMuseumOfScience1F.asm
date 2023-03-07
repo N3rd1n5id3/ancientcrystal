@@ -36,7 +36,85 @@ PewterMuseumOfScience1F_MapEvents:
 	object_const_def
 	const PEWTERMUSEUMOFSCIENCE1F_SCIENTIST2
 	
-		db 1 ; default option
+Museum1FFossilScientistScript:
+	faceplayer
+	opentext
+	writetext Museum1FFossilScientistText
+	waitbutton
+	checkitem HELIX_FOSSIL
+	iftrue .own_helix
+	checkitem DOME_FOSSIL
+	iftrue .own_dome
+	checkitem OLD_AMBER
+	iftrue .ask_old_amber
+	jumpopenedtext NoFossilsText
+
+.own_helix
+	checkitem DOME_FOSSIL
+	iftrue .own_helix_and_dome
+	checkitem OLD_AMBER
+	iftrue .ask_helix_amber
+	writetext AskHelixFossilText
+	yesorno
+	iftrue ResurrectHelixFossil
+	sjump .maybe_later
+
+.own_dome
+	checkitem OLD_AMBER
+	iftrue .ask_dome_amber
+	writetext AskDomeFossilText
+	yesorno
+	iftrue ResurrectDomeFossil
+	sjump .maybe_later
+
+.own_helix_and_dome
+	checkitem OLD_AMBER
+	iftrue .ask_helix_dome_amber
+	loadmenu HelixDomeMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, ResurrectHelixFossil
+	ifequal $2, ResurrectDomeFossil
+	sjump .maybe_later
+
+.ask_old_amber
+	writetext AskOldAmberText
+	yesorno
+	iftrue ResurrectOldAmber
+	sjump .maybe_later
+
+.ask_helix_amber
+	loadmenu HelixAmberMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, ResurrectHelixFossil
+	ifequal $2, ResurrectOldAmber
+	sjump .maybe_later
+
+.ask_dome_amber
+	loadmenu DomeAmberMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, ResurrectDomeFossil
+	ifequal $2, ResurrectOldAmber
+	sjump .maybe_later
+
+.ask_helix_dome_amber
+	loadmenu HelixDomeAmberMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, ResurrectHelixFossil
+	ifequal $2, ResurrectDomeFossil
+	ifequal $3, ResurrectOldAmber
+.maybe_later:
+	jumpopenedtext MaybeLaterText
+
+HelixDomeMenuDataHeader:
+	db $40 ; flags
+	db 04, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData2
+	db 1 ; default option
 
 .MenuData2:
 	db $80 ; flags
