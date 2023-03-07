@@ -2396,10 +2396,6 @@ _Do_jumpopenedtext:
 	ld hl, JumpOpenedTextScript
 	jp ScriptJump
 
-JumpTextFacePlayerScript:
-	faceplayer
-JumpTextScript:
-	opentext
 JumpOpenedTextScript:
 	repeattext -1, -1
 	waitendtext
@@ -2421,6 +2417,9 @@ _GetThisTextPointer:
 	ld a, [wScriptPos + 1]
 	ld [wScriptTextAddr + 1], a
 	ret
+	
+Script_waitendtext:
+	call Script_waitbutton
 
 
 .gs_version:
