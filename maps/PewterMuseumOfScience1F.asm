@@ -107,7 +107,7 @@ Museum1FFossilScientistScript:
 	ifequal $2, ResurrectDomeFossil
 	ifequal $3, ResurrectOldAmber
 .maybe_later:
-	jumpopenedtext MaybeLaterText
+	jumptext MaybeLaterText
 
 .ask_amber_egg
         loadmenu AmberEggMenuDataHeader
@@ -115,12 +115,6 @@ Museum1FFossilScientistScript:
 	closewindow
 	ifequal $1, ResurrectOldAmber
 	ifequal $2, ResurrectFossilEgg
-	sjump .maybe_later
-
-.ask_fossil_egg
-	writetext AskFossilEggText
-	yesorno
-	iftrue ResurrectFossilEgg
 	sjump .maybe_later
 
 .ask_helix_amber
