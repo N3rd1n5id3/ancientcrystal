@@ -143,7 +143,7 @@ Museum1FReceptionistScript:
 
 KabutopsFossilSignpostScript:
 	refreshscreen
-	trainerpic KABUTOPS_FOSSIL
+	fossilpic KABUTOPS_FOSSIL
 	waitbutton
 	closepokepic
 	jumpthistext
@@ -155,23 +155,9 @@ KabutopsFossilSignpostScript:
 	line "rare #mon."
 	done
 
-OmastarFossilSignpostScript:
-	refreshscreen
-	trainerpic OMASTAR_FOSSIL
-	waitbutton
-	closepokepic
-	jumpthistext
-
-	text "Omastar Fossil"
-	line "(Helix)"
-
-	para "A primitive and"
-	line "rare #mon."
-	done
-
 AerodactylFossilSignpostScript:
 	refreshscreen
-	trainerpic AERODACTYL_FOSSIL
+	fossilpic AERODACTYL_FOSSIL
 	waitbutton
 	closepokepic
 	jumpthistext
