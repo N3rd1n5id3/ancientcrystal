@@ -261,8 +261,8 @@ GoldenrodCityUndergroundSignNorth:
 GoldenrodCityUndergroundSignSouth:
 	jumptext GoldenrodCityUndergroundSignSouthText
 
-GoldenrodCityPokecenterSign:
-	jumpstd PokecenterSignScript
+PokecomCenterAdminOfficeMobileSign:
+	jumptext PokecomCenterAdminOfficeMobileSignText
 
 GoldenrodCityFlowerShopSign:
 	jumptext GoldenrodCityFlowerShopSignText
