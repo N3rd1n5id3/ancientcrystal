@@ -196,7 +196,7 @@ DomeAmberMenuDataHeader:
 	db "Old Amber@"
 	db "Cancel@"
 	
-AmberEggMenuDataHeader
+AmberEggMenuDataHeader:
         db $40 ; flags
 	db 04, 00 ; start coords
 	db 11, 14 ; end coords
@@ -225,7 +225,7 @@ HelixDomeAmberMenuDataHeader:
 	db "Old Amber@"
 	db "Cancel@"
 	
-DomeAmberEggDataHeader
+DomeAmberEggDataHeader:
 	db $40 ; flags
 	db 02, 00 ; start coords
 	db 11, 15 ; end coords
@@ -240,7 +240,7 @@ DomeAmberEggDataHeader
 	db "Fossil Egg@"
 	db "Cancel@"
 	
-HelixDomeAmberEggMenuDataHeader
+HelixDomeAmberEggMenuDataHeader:
         db $40 ; flags
 	db 02, 00 ; start coords
 	db 11, 15 ; end coords
@@ -249,7 +249,7 @@ HelixDomeAmberEggMenuDataHeader
 
 .MenuData2:
 	db $80 ; flags
-	db 4 ; items
+	db 5 ; items
 	db "Helix Fossil@"
 	db "Dome Fossil@"
 	db "Old Amber@"
