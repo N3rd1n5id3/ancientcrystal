@@ -112,11 +112,6 @@ TrainerCard_Page1_LoadGFX:
 	call TrainerCard_Page1_PrintDexCaught_GameTime
 	; fallthrough
 
-TrainerCard_IncrementJumptable:
-	ld hl, wJumptableIndex
-	inc [hl]
-	ret
-
 TrainerCard_Page1_Joypad:
 	call TrainerCard_Page1_PrintGameTime
 	ld hl, hJoyLast
@@ -217,7 +212,7 @@ TrainerCard_Page3_LoadGFX:
 
 	ld hl, TrainerCard_KantoBadgesOAM
 	call TrainerCard_Page2_3_InitObjectsAndStrings
-	jmp TrainerCard_IncrementJumptable
+	jp TrainerCard_IncrementJumptable
 
 TrainerCard_Page3_Joypad:
 	ld hl, TrainerCard_KantoBadgesOAM
@@ -243,7 +238,7 @@ TrainerCard_Page3_Joypad:
 TrainerCard_LoadHeaderGFX:
 	ld hl, vTiles2 tile $29
 	lb bc, BANK(CardStatusGFX), $4 ; BANK(CardBadgesGFX)
-	jmp Request2bpp
+	jp Request2bpp
 
 TrainerCard_PrintBorder:
 	hlcoord 0, 0
