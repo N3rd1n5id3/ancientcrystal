@@ -476,7 +476,7 @@ GoldenrodCityUndergroundSignSouthText:
 	line "ENTRANCE"
 	done
 
-GoldenrodCityPokeComCenterSignText: ; unreferenced
+PokecomCenterAdminOfficeMobileSignText: ; unreferenced
 	text "For Mobile Tips!"
 	line "#COM CENTER"
 	done
@@ -581,7 +581,7 @@ GoldenrodCity_MapEvents:
 	bg_event 12,  7, BGEVENT_READ, GoldenrodCityNameRaterSign
 	bg_event  8,  6, BGEVENT_READ, GoldenrodCityUndergroundSignNorth
 	bg_event 10, 30, BGEVENT_READ, GoldenrodCityUndergroundSignSouth
-	bg_event 16, 27, BGEVENT_UP, GoldenrodCityPokeComCenterSign
+	bg_event 16, 27, BGEVENT_UP, PokecomCenterAdminOfficeMobileSign
 	bg_event 30,  6, BGEVENT_READ, GoldenrodCityFlowerShopSign
 
 	def_object_events
