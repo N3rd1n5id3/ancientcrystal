@@ -1,5 +1,3 @@
-TRAINERCARD_BORDERGFX_START EQU $f4
-
 ; TrainerCard.Jumptable indexes
 	const_def
 	const TRAINERCARDSTATE_PAGE1_LOADGFX ; 0
@@ -48,33 +46,40 @@ TrainerCard:
 
 	farcall GetCardPic
 
-	ld hl, CardBorderGFX
-	ld de, vTiles1 tile (TRAINERCARD_BORDERGFX_START - $80)
-	lb bc, BANK(CardBorderGFX), 12
-	call DecompressRequest2bpp
-
-	ld hl, CardDividerGFX
-	ld de, vTiles2 tile $23
-	ld bc, (6 + 4) tiles ; CardDividerGFX + CardStatusGFX
-	ld a, BANK(CardDividerGFX) ; BANK(CardStatusGFX)
+	ld hl, CardRightCornerGFX
+	ld de, vTiles2 tile $1c
+	ld bc, 1 tiles
+	ld a, BANK(CardRightCornerGFX)
 	call FarCopyBytes
 
-	call TrainerCard_PrintBorder
+	ld hl, CardStatusGFX
+	ld de, vTiles2 tile $29
+	ld bc, 86 tiles
+	ld a, BANK(CardStatusGFX)
+	call FarCopyBytes
+
 	call TrainerCard_PrintTopHalfOfCard
 
+	hlcoord 0, 8
+	ld d, 6
+	call TrainerCard_InitBorder
+
 	call EnableLCD
-	call ApplyTilemapInVBlank
-	ld a, CGB_TRAINER_CARD
-	call GetCGBLayout
+	call WaitBGMap
+	ld b, SCGB_TRAINER_CARD
+	call GetSGBLayout
 	call SetPalettes
-	call ApplyTilemapInVBlank
+	call WaitBGMap
 	ld hl, wJumptableIndex
-	xor a
+	xor a ; TRAINERCARDSTATE_PAGE1_LOADGFX
 	ld [hli], a ; wJumptableIndex
 	ld [hli], a ; wTrainerCardBadgeFrameCounter
 	ld [hli], a ; wTrainerCardBadgeTileID
-	ld [hl], a  ; TODO: check if this is still needed
+	ld [hl], a  ; wTrainerCardBadgeAttributes
 	ret
+
+.RunJumptable:
+	jumptable .Jumptable, wJumptableIndex
 
 .Jumptable:
 ; entries correspond to TRAINERCARDSTATE_* constants
@@ -98,19 +103,21 @@ TrainerCard_Quit:
 
 TrainerCard_Page1_LoadGFX:
 	call ClearSprites
-	call TrainerCardSetup_ClearBottomHalf
-	call ApplyTilemapInVBlank
-
-	ld a, CGB_TRAINER_CARD
-	call GetCGBLayout
+	hlcoord 0, 8
+	ld d, 6
+	call TrainerCard_InitBorder
+	call WaitBGMap
+	ld b, SCGB_TRAINER_CARD
+	call GetSGBLayout
 	call SetPalettes
-	call ApplyTilemapInVBlank
-
+	call WaitBGMap
 	ld de, CardStatusGFX
-	call TrainerCard_LoadHeaderGFX
-
+	ld hl, vTiles2 tile $29
+	lb bc, BANK(CardStatusGFX), 86
+	call Request2bpp
 	call TrainerCard_Page1_PrintDexCaught_GameTime
-	; fallthrough
+	call TrainerCard_IncrementJumptable
+	ret
 
 TrainerCard_Page1_Joypad:
 	call TrainerCard_Page1_PrintGameTime
@@ -127,30 +134,26 @@ TrainerCard_Page1_Joypad:
 
 TrainerCard_Page2_LoadGFX:
 	call ClearSprites
-	call TrainerCardSetup_ClearBottomHalf
-	call ApplyTilemapInVBlank
-
-	ld a, CGB_TRAINER_CARD_2
-	call GetCGBLayout
+	hlcoord 0, 8
+	ld d, 6
+	call TrainerCard_InitBorder
+	call WaitBGMap
+	ld b, SCGB_TRAINER_CARD
+	call GetSGBLayout
 	call SetPalettes
-	call ApplyTilemapInVBlank
-
-	ld de, CardBadgesGFX
-	call TrainerCard_LoadHeaderGFX
-
-	ld hl, LeaderGFX
-	ld de, vTiles2 tile $2f
-	lb bc, BANK(LeaderGFX), $50
-	call DecompressRequest2bpp
-
-	ld hl, BadgeGFX
-	ld de, vTiles0 tile $00
-	lb bc, BANK(BadgeGFX), $2c
-	call DecompressRequest2bpp
-
+	call WaitBGMap
+	ld de, LeaderGFX
+	ld hl, vTiles2 tile $29
+	lb bc, BANK(LeaderGFX), 86
+	call Request2bpp
 	ld hl, TrainerCard_JohtoBadgesOAM
+	ld de, BadgeGFX
+	ld hl, vTiles0 tile $00
+	lb bc, BANK(BadgeGFX), 44
+	call Request2bpp
 	call TrainerCard_Page2_3_InitObjectsAndStrings
-	jr TrainerCard_IncrementJumptable
+	call TrainerCard_IncrementJumptable
+	ret
 
 TrainerCard_Page2_Joypad:
 	ld hl, TrainerCard_JohtoBadgesOAM
@@ -189,30 +192,26 @@ TrainerCard_Page2_Joypad:
 
 TrainerCard_Page3_LoadGFX:
 	call ClearSprites
-	call TrainerCardSetup_ClearBottomHalf
-	call ApplyTilemapInVBlank
-
-	ld a, CGB_TRAINER_CARD_3
-	call GetCGBLayout
+	hlcoord 0, 8
+	ld d, 6
+	call TrainerCard_InitBorder
+	call WaitBGMap
+	ld b, SCGB_TRAINER_CARD_KANTO
+	call GetSGBLayout
 	call SetPalettes
-	call ApplyTilemapInVBlank
-
-	ld de, CardBadgesGFX
-	call TrainerCard_LoadHeaderGFX
-
-	ld hl, LeaderGFX2
-	ld de, vTiles2 tile $2f
-	lb bc, BANK(LeaderGFX2), $50
-	call DecompressRequest2bpp
-
-	ld hl, BadgeGFX2
-	ld de, vTiles0 tile $00
-	lb bc, BANK(BadgeGFX2), $2c
-	call DecompressRequest2bpp
-
+	call WaitBGMap
+	ld de, LeaderGFX2
+	ld hl, vTiles2 tile $29
+	lb bc, BANK(LeaderGFX2), 86
+	call Request2bpp
 	ld hl, TrainerCard_KantoBadgesOAM
+	ld de, BadgeGFX2
+	ld hl, vTiles0 tile $00
+	lb bc, BANK(BadgeGFX2), 44
+	call Request2bpp
 	call TrainerCard_Page2_3_InitObjectsAndStrings
-	jp TrainerCard_IncrementJumptable
+	call TrainerCard_IncrementJumptable
+	ret
 
 TrainerCard_Page3_Joypad:
 	ld hl, TrainerCard_KantoBadgesOAM
@@ -233,76 +232,6 @@ TrainerCard_Page3_Joypad:
 .pressed_a
 	ld a, TRAINERCARDSTATE_QUIT
 	ld [wJumptableIndex], a
-	ret
-	
-TrainerCard_LoadHeaderGFX:
-	ld hl, vTiles2 tile $29
-	lb bc, BANK(CardStatusGFX), $4 ; BANK(CardBadgesGFX)
-	jp Request2bpp
-
-TrainerCard_PrintBorder:
-	hlcoord 0, 0
-
-	ld a, TRAINERCARD_BORDERGFX_START
-	ld [hli], a
-	ld e, SCREEN_WIDTH - 2
-	inc a ; top border
-.loop1
-	ld [hli], a
-	dec e
-	jr nz, .loop1
-	inc a ; top-right corner
-	ld [hli], a
-
-	ld bc, SCREEN_WIDTH - 2
-	ld e, SCREEN_HEIGHT - 2
-	inc a ; left border
-.loop2
-	ld [hli], a
-	add hl, bc
-	inc a ; right border
-	ld [hli], a
-	dec a ; left border again
-	dec e
-	jr nz, .loop2
-
-	inc a
-	inc a ; bottom-left corner
-	ld [hli], a
-	ld e, SCREEN_WIDTH - 2
-	inc a ; bottom border
-.loop3
-	ld [hli], a
-	dec e
-	jr nz, .loop3
-	inc a ; bottom-right corner
-	ld [hl], a
-
-	hlcoord 1, 8
-	ld a, $23
-	ld [hli], a
-	ld a, $29
-	ld [hli], a
-	inc a ; $2a
-	ld [hli], a
-	inc a ; $2b
-	ld [hli], a
-	inc a ; $2c
-	ld [hli], a
-	ld a, $24
-	ld [hli], a
-
-	ld e, 4
-.loop4
-	inc a ; $25
-	ld [hli], a
-	inc a ; $26
-	ld [hli], a
-	inc a ; $27
-	ld [hli], a
-	ld a, $25 - 1
-	dec e
-	jr nz, .loop4
 	ret
 
 TrainerCard_PrintTopHalfOfCard:
@@ -741,12 +670,12 @@ TrainerCard_KantoBadgesOAM:
 	db $1c,            $20 | (1 << 7), $24, $20
 	db $1c | (1 << 7), $20 | (1 << 7), $24, $20
 
-CardBorderGFX:  INCBIN "gfx/trainer_card/border.2bpp.lz"
-CardDividerGFX: INCBIN "gfx/trainer_card/divider.2bpp"
-CardStatusGFX:  INCBIN "gfx/trainer_card/status.2bpp" ; must come after CardDividerGFX
-CardBadgesGFX:  INCBIN "gfx/trainer_card/badges.2bpp"
+CardStatusGFX: INCBIN "gfx/trainer_card/card_status.2bpp"
 
 LeaderGFX:  INCBIN "gfx/trainer_card/johto_leaders.2bpp"
 LeaderGFX2: INCBIN "gfx/trainer_card/kanto_leaders.2bpp"
 BadgeGFX:   INCBIN "gfx/trainer_card/johto_badges.2bpp"
 BadgeGFX2:  INCBIN "gfx/trainer_card/kanto_badges.2bpp"
+
+
+CardRightCornerGFX: INCBIN "gfx/trainer_card/card_right_corner.2bpp"
