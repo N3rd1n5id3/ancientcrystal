@@ -22,6 +22,9 @@ PokecomCenterAdminOfficeMobileScientist2Script:
 PokecomCenterAdminOfficeMobileScientist3Script:
 	jumptextfaceplayer PokecomCenterAdminOfficeMobileScientist3Text
 	
+PokecomCenterAdminOfficeMobileReceptionistScript:
+        jumptextfaceplayer GoldenrodPokecomCenterWelcomeToTradeCornerText
+	
 PokecomCenterAdminOfficeMobile_GSBallSceneLeft:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .gsball
@@ -813,18 +816,16 @@ PokecomCenterAdminOfficeMobile_MapEvents:
 
 	def_warp_events
 	warp_event  6, 15, GOLDENROD_CITY, 3
-	warp_event  7, 31, GOLDENROD_CITY, 3
+	warp_event  7, 15, GOLDENROD_CITY, 3
 	warp_event  0, 15, POKECENTER_2F, 3
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  6, 26, BGEVENT_UP, PokecomCenterAdminOfficeMobileComputer1
-	bg_event  6, 28, BGEVENT_UP, PokecomCenterAdminOfficeMobileComputer2
-	bg_event  3, 26, BGEVENT_UP, PokecomCenterAdminOfficeMobileComputer3
-
+	
 	def_object_events
-	object_event  7,  7, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodPokecenter1FNurseScript, -1
+	object_event  7,  7, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileNurseScript, -1
 	object_event  4, 28, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileScientist1Script, -1
 	object_event  7, 27, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileScientist2Script, -1
 	object_event  7, 29, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileScientist3Script, -1
+	object_event 16,  8, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileReceptionistScript, -1
