@@ -4,6 +4,9 @@
 	const POKECOMCENTERADMINOFFICEMOBILE_SCIENTIST3
 	const POKECOMCENTERADMINOFFICEMOBILE_NURSE
 	const POKECOMCENTERADMINOFFICEMOBILE_RECEPTIONIST
+	const POKECOMCENTERADMINOFFICEMOBILE_GAMEBOY_KID
+	const POKECOMCENTERADMINOFFICEMOBILE_LASS
+	const POKECOMCENTERADMINOFFICEMOBILE_POKEFAN_F
 
 PokecomCenterAdminOfficeMobile_MapScripts:
 	def_scene_scripts
@@ -25,6 +28,13 @@ PokecomCenterAdminOfficeMobileScientist3Script:
 	
 PokecomCenterAdminOfficeMobileReceptionistScript:
         jumptextfaceplayer GoldenrodPokecomCenterWelcomeToTradeCornerText
+	
+PokecomCenterAdminOfficeMobileGameboyKidScript:
+	jumptextfaceplayer PokecomCenterAdminOfficeMobileGameboyKidText
+
+PokecomCenterAdminOfficeMobileLassScript:
+	jumptextfaceplayer PokecomCenterAdminOfficeMobileLassText
+
 	
 PokecomCenterAdminOfficeMobile_GSBallSceneLeft:
 	checkevent EVENT_BEAT_ELITE_FOUR
@@ -88,12 +98,6 @@ PokecomCenterAdminOfficeMobile_GSBallSceneRight:
 .cancel
 	end
 		
-PokecomCenterAdminOfficeMobileGameboyKidScript:
-	jumptextfaceplayer PokecomCenterAdminOfficeMobileGameboyKidText
-
-PokecomCenterAdminOfficeMobileLassScript:
-	jumptextfaceplayer PokecomCenterAdminOfficeMobileLassText
-
 PokecomCenterAdminOfficeMobilePokefanF:
 	faceplayer
 	opentext
@@ -843,3 +847,6 @@ PokecomCenterAdminOfficeMobile_MapEvents:
 	object_event  7, 27, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileScientist2Script, -1
 	object_event  7, 29, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileScientist3Script, -1
 	object_event 16,  8, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileReceptionistScript, -1
+	object_event 10, 12, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileGameboyKidtScript, -1
+	object_event 21,  5, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileLassScript, -1
+	object_event 19, 12, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0,  PokecomCenterAdminOfficeMobilePokefanFScript, -1
