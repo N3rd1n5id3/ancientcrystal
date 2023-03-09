@@ -11,7 +11,7 @@ PokecomCenterAdminOfficeMobile_MapScripts:
 	def_callbacks
 
 PokecomCenterAdminOfficeMobileNurseScript:
-
+        jumpstd PokecenterNurseScript
 
 PokecomCenterAdminOfficeMobileScientist1Script:
 	jumptextfaceplayer PokecomCenterAdminOfficeMobileScientist1Text
