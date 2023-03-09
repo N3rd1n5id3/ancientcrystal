@@ -318,7 +318,7 @@ Museum1FReceptionistScript:
 
 KabutopsFossilSignpostScript:
 	refreshscreen
-	pokepic KABUTOPS
+	pokepic KABUTOPS_FOSSIL
 	waitbutton
 	closepokepic
 	opentext
@@ -326,7 +326,7 @@ KabutopsFossilSignpostScript:
 
 AerodactylFossilSignpostScript:
 	refreshscreen
-	pokepic AERODACTYL
+	pokepic AERODACTYL_FOSSIL
 	waitbutton
 	closepokepic
 	opentext
