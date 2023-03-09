@@ -83,8 +83,506 @@ PokecomCenterAdminOfficeMobile_GSBallSceneRight:
 	playsound SFX_EXIT_BUILDING
 .cancel
 	end
-	
-	
+		
+PokecomCenterAdminOfficeMobileGameboyKidScript:
+	jumptextfaceplayer PokecomCenterAdminOfficeMobileGameboyKidText
+
+PokecomCenterAdminOfficeMobileLassScript:
+	jumptextfaceplayer PokecomCenterAdminOfficeMobileLassText
+
+PokecomCenterAdminOfficeMobilePokefanF:
+	faceplayer
+	opentext
+	writetext PokecomCenterAdminOfficeMobilePokefanFDoYouHaveEonMailText
+	waitbutton
+	writetext PokecomCenterAdminOfficeMobileAskGiveAwayAnEonMailText
+	yesorno
+	iffalse .NoEonMail
+	takeitem EON_MAIL
+	iffalse .NoEonMail
+	writetext PokecomCenterAdminOfficeMobilePlayerGaveAwayTheEonMailText
+	waitbutton
+	writetext PokecomCenterAdminOfficeMobilePokefanFThisIsForYouText
+	waitbutton
+	verbosegiveitem REVIVE
+	iffalse .NoRoom
+	writetext PokecomCenterAdminOfficeMobilePokefanFDaughterWillBeDelightedText
+	waitbutton
+	closetext
+	end
+
+.NoEonMail:
+	writetext PokecomCenterAdminOfficeMobilePokefanFTooBadText
+	waitbutton
+	closetext
+	end
+
+.NoRoom:
+	giveitem EON_MAIL
+	writetext PokecomCenterAdminOfficeMobilePokefanFAnotherTimeThenText
+	waitbutton
+	closetext
+	end
+
+PokecomCenterAdminOfficeMobileLinkReceptionistApproachPlayerAtLeftDoorwayTileMovement:
+	step UP
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	turn_head DOWN
+	step_end
+
+PokecomCenterAdminOfficeMobileLinkReceptionistWalkToStairsFromLeftDoorwayTileMovement:
+	step LEFT
+	step LEFT
+	step LEFT
+	step DOWN
+	step_end
+
+PokecomCenterAdminOfficeMobileLinkReceptionistApproachPlayerAtRightDoorwayTileMovement:
+	step UP
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	turn_head DOWN
+	step_end
+
+PokecomCenterAdminOfficeMobileLinkReceptionistWalkToStairsFromRightDoorwayTileMovement:
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step DOWN
+	step_end
+
+GoldenrodPokecomCenterWelcomeToTradeCornerText: ; unreferenced
+	text "Hello! Welcome to"
+	line "#COM CENTER"
+	cont "TRADE CORNER."
+
+	para "You can trade"
+	line "#MON with other"
+	cont "people far away."
+	done
+
+GoldenrodPokecomCenterWeMustHoldYourMonText: ; unreferenced
+	text "To make a trade,"
+	line "we must hold your"
+	cont "#MON."
+
+	para "Would you like to"
+	line "trade?"
+	done
+
+GoldenrodPokecomCenterWhatMonDoYouWantText: ; unreferenced
+	text "What kind of"
+	line "#MON do you"
+	cont "want in return?"
+	done
+
+GoldenrodPokecomCenterWeWillTradeYourMonForMonText: ; unreferenced
+	text "Fine. We will try"
+	line "to trade your"
+
+	para "@"
+	text_ram wStringBuffer3
+	text " for"
+	line "@"
+	text_ram wStringBuffer4
+	text "."
+
+	para "We'll have to hold"
+	line "your #MON"
+	cont "during the trade."
+
+	para "Please wait while"
+	line "we prepare the"
+	cont "room for it."
+	done
+
+GoldenrodPokecomCenterWeWillTradeYourMonForNewText: ; unreferenced
+	text "Fine. We will try"
+	line "to trade your"
+
+	para "@"
+	text_ram wStringBuffer3
+	text " for a"
+	line "#MON that you"
+	cont "have never seen."
+
+	para "We'll have to hold"
+	line "your #MON"
+	cont "during the trade."
+
+	para "Please wait while"
+	line "we prepare the"
+	cont "room for it."
+	done
+
+GoldenrodPokecomCenterYourMonHasBeenReceivedText: ; unreferenced
+	text "Your trade #MON"
+	line "has been received."
+
+	para "It will take time"
+	line "to find a trade"
+
+	para "partner. Please"
+	line "come back later."
+	done
+
+GoldenrodPokecomCenterYouHaveOnlyOneMonText: ; unreferenced
+	text "Oh? You have only"
+	line "one #MON in"
+	cont "your party. "
+
+	para "Please come back"
+	line "once you've in-"
+	cont "creased the size"
+	cont "of your party."
+	done
+
+GoldenrodPokecomCenterWeHopeToSeeYouAgainText: ; unreferenced
+	text "We hope to see you"
+	line "again."
+	done
+
+GoldenrodPokecomCenterCommunicationErrorText: ; unreferenced
+	text "Communication"
+	line "error…"
+	done
+
+GoldenrodPokecomCenterCantAcceptLastMonText: ; unreferenced
+	text "If we accept that"
+	line "#MON, what will"
+	cont "you battle with?"
+	done
+
+GoldenrodPokecomCenterCantAcceptEggText: ; unreferenced
+	text "Sorry. We can't"
+	line "accept an EGG."
+	done
+
+GoldenrodPokecomCenterCantAcceptAbnormalMonText: ; unreferenced
+	text "Sorry, but your"
+	line "#MON appears to"
+
+	para "be abnormal. We"
+	line "can't accept it."
+	done
+
+GoldenrodPokecomCenterAlreadyHoldingMonText: ; unreferenced
+	text "Oh? Aren't we"
+	line "already holding a"
+	cont "#MON of yours?"
+	done
+
+GoldenrodPokecomCenterCheckingTheRoomsText: ; unreferenced
+	text "We'll check the"
+	line "rooms."
+
+	para "Please wait."
+	done
+
+GoldenrodPokecomCenterTradePartnerHasBeenFoundText: ; unreferenced
+	text "Thank you for your"
+	line "patience."
+
+	para "A trade partner"
+	line "has been found."
+	done
+
+GoldenrodPokecomCenterItsYourNewPartnerText: ; unreferenced
+	text "It's your new"
+	line "partner."
+
+	para "Please take care"
+	line "of it with love."
+
+	para "We hope to see you"
+	line "again."
+	done
+
+GoldenrodPokecomCenterYourPartyIsFullText: ; unreferenced
+	text "Uh-oh. Your party"
+	line "is already full."
+
+	para "Please come back"
+	line "when you have room"
+	cont "in your party."
+	done
+
+GoldenrodPokecomCenterNoTradePartnerFoundText: ; unreferenced
+	text "It's unfortunate,"
+	line "but no one has"
+
+	para "come forward as a"
+	line "trade partner."
+
+	para "Would you like"
+	line "your #MON back?"
+	done
+
+GoldenrodPokecomCenterReturnedYourMonText: ; unreferenced
+	text "We have returned"
+	line "your #MON."
+	done
+
+GoldenrodPokecomCenterYourMonIsLonelyText: ; unreferenced
+	text "It's unfortunate,"
+	line "but no one has"
+
+	para "come forward as a"
+	line "trade partner."
+
+	para "We've held your"
+	line "#MON for a long"
+
+	para "time. As a result,"
+	line "it is very lonely."
+
+	para "Sorry, but we must"
+	line "return it to you."
+	done
+
+PokecomCenterAdminOfficeMobileWeHopeToSeeYouAgainText_2: ; unreferenced
+	text "We hope to see you"
+	line "again."
+	done
+
+GoldenrodPokecomCenterContinueToHoldYourMonText: ; unreferenced
+	text "Fine. We will"
+	line "continue to hold"
+	cont "your #MON."
+	done
+
+GoldenrodPokecomCenterRecentlyLeftYourMonText: ; unreferenced
+	text "Oh? You left your"
+	line "#MON with us"
+	cont "only recently."
+
+	para "Please come back"
+	line "later."
+	done
+
+GoldenrodPokecomCenterSaveBeforeTradeCornerText: ; unreferenced
+	text "We'll SAVE before"
+	line "connecting to the"
+	cont "CENTER."
+	done
+
+GoldenrodPokecomCenterWhichMonToTradeText: ; unreferenced
+	text "Which #MON do"
+	line "you want to trade?"
+	done
+
+GoldenrodPokecomCenterTradeCanceledText: ; unreferenced
+	text "Sorry, but we must"
+	line "cancel the trade."
+	done
+
+GoldenrodPokecomCenterEggTicketText: ; unreferenced
+	text "Oh!"
+
+	para "I see you have an"
+	line "EGG TICKET!"
+
+	para "It's a coupon that"
+	line "special people can"
+
+	para "redeem for a"
+	line "special #MON!"
+	done
+
+GoldenrodPokecomCenterOddEggBriefingText: ; unreferenced
+	text "Let me give you a"
+	line "quick briefing."
+
+	para "Trades held at the"
+	line "TRADE CORNER are"
+
+	para "between two"
+	line "trainers who don't"
+
+	para "know each other's"
+	line "identity."
+
+	para "As a result, it"
+	line "may take time."
+
+	para "However, an ODD"
+	line "EGG is available"
+	cont "just for you."
+
+	para "It will be sent to"
+	line "you right away."
+
+	para "Please choose one"
+	line "of the rooms in"
+
+	para "the CENTER."
+	line "An ODD EGG will be"
+
+	para "sent from the"
+	line "chosen room."
+	done
+
+GoldenrodPokecomCenterPleaseWaitAMomentText: ; unreferenced
+	text "Please wait a"
+	line "moment."
+	done
+
+GoldenrodPokecomCenterHereIsYourOddEggText: ; unreferenced
+	text "Thank you for"
+	line "waiting."
+
+	para "We received your"
+	line "ODD EGG."
+
+	para "Here it is!"
+
+	para "Please raise it"
+	line "with loving care."
+	done
+
+GoldenrodPokecomCenterNoEggTicketServiceText: ; unreferenced
+	text "I'm awfully sorry."
+
+	para "The EGG TICKET"
+	line "exchange service"
+	cont "isn't running now."
+	done
+
+GoldenrodPokecomCenterNewsMachineText: ; unreferenced
+	text "It's a #MON"
+	line "NEWS MACHINE."
+	done
+
+GoldenrodPokecomCenterWhatToDoText: ; unreferenced
+	text "What would you"
+	line "like to do?"
+	done
+
+GoldenrodPokecomCenterNewsMachineExplanationText: ; unreferenced
+	text "#MON NEWS is"
+	line "news compiled from"
+
+	para "the SAVE files of"
+	line "#MON trainers."
+
+	para "When reading the"
+	line "NEWS, your SAVE"
+
+	para "file may be sent"
+	line "out."
+
+	para "The SAVE file data"
+	line "will contain your"
+
+	para "adventure log and"
+	line "mobile profile."
+
+	para "Your phone number"
+	line "will not be sent."
+
+	para "The contents of"
+	line "the NEWS will vary"
+
+	para "depending on the"
+	line "SAVE files sent by"
+
+	para "you and the other"
+	line "#MON trainers."
+
+	para "You might even be"
+	line "in the NEWS!"
+	done
+
+GoldenrodPokecomCenterWouldYouLikeTheNewsText: ; unreferenced
+	text "Would you like to"
+	line "get the NEWS?"
+	done
+
+GoldenrodPokecomCenterReadingTheLatestNewsText: ; unreferenced
+	text "Reading the latest"
+	line "NEWS… Please wait."
+	done
+
+GoldenrodPokecomCenterNoOldNewsText: ; unreferenced
+	text "There is no old"
+	line "NEWS…"
+	done
+
+GoldenrodPokecomCenterCorruptedNewsDataText: ; unreferenced
+	text "The NEWS data is"
+	line "corrupted."
+
+	para "Please download"
+	line "the NEWS again."
+	done
+
+GoldenrodPokecomCenterMakingPreparationsText: ; unreferenced
+	text "We're making"
+	line "preparations."
+
+	para "Please come back"
+	line "later."
+	done
+
+GoldenrodPokecomCenterSaveBeforeNewsMachineText: ; unreferenced
+	text "We will SAVE your"
+	line "progress before"
+
+	para "starting the NEWS"
+	line "MACHINE."
+	done
+
+GoldenrodPokecomCenterPerson1Text: ; unreferenced
+	text "Whoa, this #MON"
+	line "CENTER is huge."
+
+	para "They just built"
+	line "this place. They"
+
+	para "installed lots of"
+	line "new machines too."
+	done
+
+GoldenrodPokecomCenterPerson2Text: ; unreferenced
+	text "I thought up a fun"
+	line "new thing for the"
+	cont "TRADE CORNER!"
+
+	para "I make a PIDGEY"
+	line "hold MAIL, then"
+
+	para "put it up for"
+	line "trade for another"
+	cont "one!"
+
+	para "If everyone did"
+	line "that, MAIL could"
+
+	para "be traded with all"
+	line "sorts of people!"
+
+	para "I call it PIDGEY"
+	line "MAIL!"
+
+	para "If it becomes"
+	line "popular, I might"
+
+	para "make lots of new"
+	line "friends!"
+	done
+
+GoldenrodPokecomCenterPerson3Text: ; unreferenced
+	text "They said you can"
+	line "trade #MON with"
+
+	para "total strangers up"
+	line "here."
+
 	para "But they're still"
 	line "adjusting things."
 	done
@@ -169,7 +667,7 @@ GoldenrodPokecomCenterPerson11Text: ; unreferenced
 	cont "NEWS?"
 	done
 
-GoldenrodPokecenter1FGameboyKidText:
+PokecomCenterAdminOfficeMobileGameboyKidText:
 	text "The COLOSSEUM"
 	line "upstairs is for"
 	cont "link battles."
@@ -207,7 +705,7 @@ GoldenrodPokecomCenterPerson13Text: ; unreferenced
 	line "younger!"
 	done
 
-GoldenrodPokecenter1FLassText:
+PokecomCenterAdminOfficeMobileLassText:
 	text "A higher level"
 	line "#MON doesn't"
 	cont "always win."
@@ -223,7 +721,7 @@ GoldenrodPokecenter1FLassText:
 	line "the toughest."
 	done
 
-GoldenrodPokeCenter1FLinkReceptionistPleaseAcceptGSBallText:
+PokecomCenterAdminOfficeMobileLinkReceptionistPleaseAcceptGSBallText:
 	text "<PLAYER>, isn't it?"
 
 	para "Congratulations!"
@@ -235,7 +733,7 @@ GoldenrodPokeCenter1FLinkReceptionistPleaseAcceptGSBallText:
 	para "Please accept it!"
 	done
 
-GoldenrodPokeCenter1FLinkReceptionistPleaseDoComeAgainText:
+PokecomCenterAdminOfficeMobileLinkReceptionistPleaseDoComeAgainText:
 	text "Please do come"
 	line "again!"
 	done
@@ -262,7 +760,7 @@ GoldenrodPokecomCenterNewsMachineNotYetText: ; unreferenced
 	line "operation yet…"
 	done
 
-GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText:
+PokecomCenterAdminOfficeMobilePokefanFDoYouHaveEonMailText:
 	text "Oh my, your pack"
 	line "looks so heavy!"
 
@@ -277,12 +775,12 @@ GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText:
 	line "one, can't you?"
 	done
 
-GoldenrodPokecenter1FAskGiveAwayAnEonMailText:
+PokecomCenterAdminOfficeMobileAskGiveAwayAnEonMailText:
 	text "Give away an EON"
 	line "MAIL?"
 	done
 
-GoldenrodPokecenter1FPokefanFThisIsForYouText:
+PokecomCenterAdminOfficeMobilePokefanFThisIsForYouText:
 	text "Oh, that's great!"
 	line "Thank you, honey!"
 
@@ -290,267 +788,24 @@ GoldenrodPokecenter1FPokefanFThisIsForYouText:
 	line "you in return!"
 	done
 
-GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText:
+PokecomCenterAdminOfficeMobilePokefanFDaughterWillBeDelightedText:
 	text "My daughter will"
 	line "be delighted!"
 	done
 
-GoldenrodPokecenter1FPokefanFTooBadText:
+PokecomCenterAdminOfficeMobilePokefanFTooBadText:
 	text "Oh? You don't have"
 	line "one? Too bad."
 	done
 
-GoldenrodPokecenter1FPokefanFAnotherTimeThenText:
+PokecomCenterAdminOfficeMobilePokefanFAnotherTimeThenText:
 	text "Oh… Well, another"
 	line "time, then."
 	done
 
-GoldenrodPokecenter1FPlayerGaveAwayTheEonMailText:
+PokecomCenterAdminOfficeMobilePlayerGaveAwayTheEonMailText:
 	text "<PLAYER> gave away"
 	line "the EON MAIL."
-	done
-
-PokecomCenterAdminOfficeMobileComputer1:
-	opentext
-	writetext PokecomCenterAdminOfficeMobileComputer1Text
-	waitbutton
-.loop:
-	reloadmappart
-	loadmenu .Computer1MenuHeader
-	verticalmenu
-	closewindow
-	ifequal 1, .PokeComClub
-	ifequal 2, .MobileCenter
-	sjump .Quit
-
-.PokeComClub:
-	opentext
-	writetext PokecomCenterAdminOfficeMobileComputer1Text_PokeComClub
-	waitbutton
-	sjump .loop
-
-.MobileCenter:
-	opentext
-	writetext PokecomCenterAdminOfficeMobileComputer1Text_MobileCenter
-	waitbutton
-	sjump .loop
-
-.Quit:
-	closetext
-	end
-
-.Computer1MenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 0, 15, 8
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 3 ; items
-	db "#　つうしん　クラブ@" ; # COM CLUB
-	db "モバイルセンター@" ; MOBILE CENTER
-	db "やめる@" ; QUIT
-
-PokecomCenterAdminOfficeMobileComputer2:
-	opentext
-	writetext PokecomCenterAdminOfficeMobileComputer2Text
-	waitbutton
-.loop:
-	reloadmappart
-	loadmenu .Computer2MenuHeader
-	verticalmenu
-	closewindow
-	ifequal 1, .UsePhone
-	ifequal 2, .DontUsePhone
-	sjump .Quit
-
-.UsePhone:
-	opentext
-	writetext PokecomCenterAdminOfficeMobileComputer2Text_UsePhone
-	waitbutton
-	sjump .loop
-
-.DontUsePhone:
-	opentext
-	writetext PokecomCenterAdminOfficeMobileComputer2Text_DontUsePhone
-	waitbutton
-	sjump .loop
-
-.Quit:
-	closetext
-	end
-
-.Computer2MenuHeader:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 0, 15, 8
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 3 ; items
-	db "でんわ<WO>つかうとき@" ; Use phone
-	db "でんわ<GA>つながらないとき@" ; Don't use phone
-	db "やめる@" ; QUIT
-
-PokecomCenterAdminOfficeMobileComputer3:
-	jumptext PokecomCenterAdminOfficeMobileComputer3Text
-
-PokecomCenterAdminOfficeMobileScientist1Text:
-	text "#COM CENTER and"
-	line "MOBILE CENTER were"
-
-	para "built to satisfy"
-	line "demands for trades"
-
-	para "and battles with"
-	line "trainers far away"
-
-	para "and with total"
-	line "strangers."
-	done
-
-PokecomCenterAdminOfficeMobileScientist2Text:
-	text "When you linked"
-	line "with someone by"
-
-	para "mobile phone for"
-	line "the first time,"
-
-	para "weren't you"
-	line "impressed?"
-
-	para "When my first try"
-	line "worked, I was so"
-
-	para "impressed that I"
-	line "got the shakes!"
-	done
-
-PokecomCenterAdminOfficeMobileScientist3Text:
-	text "They were able to"
-	line "build this huge"
-
-	para "facility thanks to"
-	line "advances in wire-"
-	cont "less technology."
-	done
-
-PokecomCenterAdminOfficeMobileComputer1Text:
-	text "It's a notice"
-	line "about where MOBILE"
-
-	para "ADAPTERS are to be"
-	line "used…"
-	done
-
-PokecomCenterAdminOfficeMobileComputer1Text_PokeComClub:
-	text "There's a #COM"
-	line "CLUB upstairs in"
-
-	para "any #MON"
-	line "CENTER."
-
-	para "There, you can"
-	line "battle or trade"
-
-	para "with a friend far"
-	line "away by using a"
-	cont "MOBILE ADAPTER."
-
-	para "To link up, your"
-	line "friend must have"
-
-	para "the same kind of"
-	line "MOBILE ADAPTER as"
-	cont "you."
-	done
-
-PokecomCenterAdminOfficeMobileComputer1Text_MobileCenter:
-	text "To use the TRADE"
-	line "CORNER or read the"
-
-	para "#MON NEWS, you"
-	line "need to phone the"
-	cont "MOBILE CENTER."
-
-	para "You must register"
-	line "at the MOBILE"
-
-	para "CENTER before"
-	line "connecting there."
-	done
-
-PokecomCenterAdminOfficeMobileComputer2Text:
-	text "It's a notice"
-	line "about using the"
-	cont "phone…"
-	done
-
-PokecomCenterAdminOfficeMobileComputer2Text_UsePhone:
-	text "Please ensure that"
-	line "your phone and"
-
-	para "MOBILE ADAPTER are"
-	line "properly linked."
-
-	para "Please make sure"
-	line "the wireless phone"
-	cont "signal is strong."
-
-	para "Don't touch or"
-	line "hang up the phone"
-	cont "while linking."
-	done
-
-PokecomCenterAdminOfficeMobileComputer2Text_DontUsePhone:
-	text "If the server is"
-	line "busy, it may not"
-
-	para "be possible to log"
-	line "on."
-
-	para "If so, please call"
-	line "back later."
-
-	para "If you are unable"
-	line "to log on or don't"
-
-	para "understand the"
-	line "error messages,"
-
-	para "call a support"
-	line "center or read the"
-	cont "instructions."
-	done
-
-PokecomCenterAdminOfficeMobileComputer3Text:
-	text "The ADMINISTRATION"
-	line "OFFICE received an"
-	cont "e-mail. It says…"
-
-	para "<……> <……> <……>"
-
-	para "To the #COM"
-	line "CENTER staff…"
-
-	para "Wireless communi-"
-	line "cation has enabled"
-
-	para "#MON trainers"
-	line "to interact across"
-
-	para "the nation. Let's"
-	line "keep working for"
-
-	para "the day when all"
-	line "the trainers in"
-
-	para "the world can link"
-	line "without barriers!"
-
-	para "<……> <……> <……>"
 	done
 
 PokecomCenterAdminOfficeMobile_MapEvents:
