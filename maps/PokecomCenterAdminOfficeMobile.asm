@@ -34,7 +34,6 @@ PokecomCenterAdminOfficeMobileGameboyKidScript:
 
 PokecomCenterAdminOfficeMobileLassScript:
 	jumptextfaceplayer PokecomCenterAdminOfficeMobileLassText
-
 	
 PokecomCenterAdminOfficeMobile_GSBallSceneLeft:
 	checkevent EVENT_BEAT_ELITE_FOUR
