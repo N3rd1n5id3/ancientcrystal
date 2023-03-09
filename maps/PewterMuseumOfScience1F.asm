@@ -323,6 +323,8 @@ KabutopsFossilSignpostScript:
 	closepokepic
 	opentext
 	writetext KabutopsFossilSignpostText
+	closetext
+	end
 
 AerodactylFossilSignpostScript:
 	refreshscreen
@@ -331,6 +333,8 @@ AerodactylFossilSignpostScript:
 	closepokepic
 	opentext
 	writetext AerodactylFossilSignpostText
+	closetext
+	end
 
 Museum1FScientistText:
 	text "We are proud of"
