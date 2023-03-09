@@ -835,7 +835,6 @@ PokecomCenterAdminOfficeMobile_MapEvents:
 	warp_event  6, 15, GOLDENROD_CITY, 3
 	warp_event  7, 15, GOLDENROD_CITY, 3
 	warp_event  0, 15, POKECENTER_2F, 3
-	war_event   0,  6, POKECOMCENTERADMINOFFICEMOBILE, 3
 
 	def_coord_events
 
