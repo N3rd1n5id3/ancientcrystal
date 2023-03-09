@@ -159,6 +159,18 @@ PokecomCenterAdminOfficeMobileLinkReceptionistWalkToStairsFromRightDoorwayTileMo
 	step LEFT
 	step DOWN
 	step_end
+	
+PokecomCenterAdminOfficeMobileScientist1Text:
+        text "Hello there!"
+	done
+	
+PokecomCenterAdminOfficeMobileScientist2Text:
+        text "Hello there!"
+	done
+	
+PokecomCenterAdminOfficeMobileScientist3Text:
+        text "Hello there!"
+	done
 
 GoldenrodPokecomCenterWelcomeToTradeCornerText: ; unreferenced
 	text "Hello! Welcome to"
