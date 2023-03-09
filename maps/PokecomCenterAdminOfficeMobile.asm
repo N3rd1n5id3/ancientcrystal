@@ -832,9 +832,12 @@ PokecomCenterAdminOfficeMobile_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  6, 15, GOLDENROD_CITY, 3
-	warp_event  7, 15, GOLDENROD_CITY, 3
-	warp_event  0, 15, POKECENTER_2F, 3
+	warp_event  6, 15, GOLDENROD_CITY, 15
+	warp_event  7, 15, GOLDENROD_CITY, 15
+	warp_event  0, 15, POKECENTER_2F, 1
+	warp_event  0,  6, POKECOMCENTERADMINOFFICEMOBILE, 1
+	warp_event  0, 31, POKECOMCENTERADMINOFFICEMOBILE, 1
+	warp_event  1, 31, POKECOMCENTERADMINOFFICEMOBILE, 1
 
 	def_coord_events
 
