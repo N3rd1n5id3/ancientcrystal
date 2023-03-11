@@ -1,3 +1,7 @@
+DEF FRUIT_TREE_3_MIN EQU 3
+DEF FRUIT_TREE_4     EQU 4
+DEF FRUIT_TREE_5_MAX EQU 5
+
 FruitTreeScript::
 	callasm GetCurTreeFruit
 	opentext
