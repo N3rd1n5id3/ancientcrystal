@@ -167,7 +167,7 @@ RuinsOfAlphResearchCenterPrinter:
 	closetext
 	end
 
-RuinsOfAlphResearchCenterPhoto: ; unreferenced
+RuinsOfAlphResearchCenterPhoto:
 	jumptext RuinsOfAlphResearchCenterProfSilktreePhotoText
 
 RuinsOfAlphResearchCenterBookshelf:
@@ -261,20 +261,6 @@ RuinsOfAlphResearchCenterScientist1Text_UnownAppeared:
 	line "investigate this."
 	done
 
-RuinsOfAlphResearchCenterScientist1Text_GotAllUnown:
-	text "Our investigation,"
-	line "with your help, is"
-
-	para "giving us insight"
-	line "into the RUINS."
-
-	para "The RUINS appear"
-	line "to have been built"
-
-	para "as a habitat for"
-	line "#MON."
-	done
-
 RuinsOfAlphResearchCenterScientist2Text:
 	text "There are odd pat-"
 	line "terns drawn on the"
@@ -306,7 +292,7 @@ RuinsOfAlphResearchCenterScientist2Text_UnownAppeared:
 	cont "kinds of them…"
 	done
 
-RuinsOfAlphResearchCenterUnusedText1: ; unreferenced
+RuinsOfAlphResearchCenterScientist1Text_GotAllUnown:
 	text "We think something"
 	line "caused the cryptic"
 
@@ -317,7 +303,7 @@ RuinsOfAlphResearchCenterUnusedText1: ; unreferenced
 	line "studies on that."
 	done
 
-RuinsOfAlphResearchCenterUnusedText2: ; unreferenced
+RuinsOfAlphResearchCenterScientist2Text_GotAllUnown:
 	text "According to my"
 	line "research…"
 
@@ -332,17 +318,6 @@ RuinsOfAlphResearchCenterUnusedText2: ; unreferenced
 
 	para "some sort of a"
 	line "link…"
-	done
-
-RuinsOfAlphResearchCenterScientist2Text_GotAllUnown:
-	text "Why did those"
-	line "ancient patterns"
-
-	para "appear on the wall"
-	line "now?"
-
-	para "The mystery"
-	line "deepens…"
 	done
 
 RuinsOfAlphResearchCenterComputerText:
@@ -400,8 +375,9 @@ RuinsOfAlphResearchCenter_MapEvents:
 	bg_event  6,  5, BGEVENT_READ, RuinsOfAlphResearchCenterBookshelf
 	bg_event  3,  4, BGEVENT_READ, RuinsOfAlphResearchCenterComputer
 	bg_event  7,  1, BGEVENT_READ, RuinsOfAlphResearchCenterPrinter
+	bg_event  4,  5, BGEVENT_READ, RuinsOfAlphResearchCenterProfSilktreePhoto
 
 	def_object_events
-	object_event  4,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist1Script, -1
+	object_event  5,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist1Script, -1
 	object_event  5,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 2, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist2Script, -1
 	object_event  2,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist3Script, EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SCIENTIST
