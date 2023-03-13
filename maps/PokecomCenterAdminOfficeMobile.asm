@@ -178,7 +178,7 @@ PokecomCenterAdminOfficeMobileScientist3Text:
         text "Hello there!"
 	done
 
-GoldenrodPokecomCenterWelcomeToTradeCornerText: ; unreferenced
+GoldenrodPokecomCenterWelcomeToTradeCornerText:
 	text "Hello! Welcome to"
 	line "#COM CENTER"
 	cont "TRADE CORNER."
