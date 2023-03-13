@@ -167,7 +167,7 @@ RuinsOfAlphResearchCenterPrinter:
 	closetext
 	end
 
-RuinsOfAlphResearchCenterPhoto:
+RuinsOfAlphResearchCenterProfSilktreePhoto:
 	jumptext RuinsOfAlphResearchCenterProfSilktreePhotoText
 
 RuinsOfAlphResearchCenterBookshelf:
