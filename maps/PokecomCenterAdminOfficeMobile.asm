@@ -14,6 +14,9 @@ PokecomCenterAdminOfficeMobile_MapScripts:
 
 	def_callbacks
 
+GoldenrodPokecomCenterSign:
+        jumptext GoldenrodPokecomCenterSignText
+
 PokecomCenterAdminOfficeMobileNurseScript:
         jumpstd PokecenterNurseScript
 
@@ -841,6 +844,7 @@ PokecomCenterAdminOfficeMobile_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  2,  9, BGEVENT_READ, GoldenrodPokecomCenterSign
 	
 	def_object_events
 	object_event  7,  7, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileNurseScript, -1
