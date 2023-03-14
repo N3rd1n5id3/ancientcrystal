@@ -7,6 +7,10 @@
 	const POKECOMCENTERADMINOFFICEMOBILE_GAMEBOY_KID
 	const POKECOMCENTERADMINOFFICEMOBILE_LASS
 	const POKECOMCENTERADMINOFFICEMOBILE_POKEFAN_F
+	const POKECOMCENTERADMINOFFICEMOBILE_TEACHER
+	const POKECOMCENTERADMINOFFICEMOBILE_YOUNGSTER
+	const POKECOMCENTERADMINOFFICEMOBILE_YOUNGSTER2
+	const POKECOMCENTERADMINOFFICEMOBILE_YOUNGSTER3
 
 PokecomCenterAdminOfficeMobile_MapScripts:
 	def_scene_scripts
@@ -37,6 +41,18 @@ PokecomCenterAdminOfficeMobileGameboyKidScript:
 
 PokecomCenterAdminOfficeMobileLassScript:
 	jumptextfaceplayer PokecomCenterAdminOfficeMobileLassText
+	
+PokecomCenterAdminOfficeMobileTeacherScript:
+	jumptextfaceplayer PokecomCenterAdminOfficeMobileTeacherText
+	
+PokecomCenterAdminOfficeMobileYoungsterScript:
+	jumptextfaceplayer PokecomCenterAdminOfficeMobileYoungsterText
+	
+PokecomCenterAdminOfficeMobileYoungster2Script:
+	jumptextfaceplayer PokecomCenterAdminOfficeMobileYoungster2Text
+	
+PokecomCenterAdminOfficeMobileYoungster3Script:
+	jumptextfaceplayer PokecomCenterAdminOfficeMobileYoungster3Text
 	
 PokecomCenterAdminOfficeMobile_GSBallSceneLeft:
 	checkevent EVENT_BEAT_ELITE_FOUR
@@ -559,7 +575,7 @@ GoldenrodPokecomCenterSaveBeforeNewsMachineText: ; unreferenced
 	line "MACHINE."
 	done
 
-GoldenrodPokecomCenterPerson1Text: ; unreferenced
+PokecomCenterAdminOfficeMobileYoungsterText:
 	text "Whoa, this #MON"
 	line "CENTER is huge."
 
@@ -570,7 +586,7 @@ GoldenrodPokecomCenterPerson1Text: ; unreferenced
 	line "new machines too."
 	done
 
-GoldenrodPokecomCenterPerson2Text: ; unreferenced
+PokecomCenterAdminOfficeMobileTeacherText:
 	text "I thought up a fun"
 	line "new thing for the"
 	cont "TRADE CORNER!"
@@ -598,7 +614,7 @@ GoldenrodPokecomCenterPerson2Text: ; unreferenced
 	line "friends!"
 	done
 
-GoldenrodPokecomCenterPerson3Text: ; unreferenced
+PokecomCenterAdminOfficeMobileYoungster2Text:
 	text "They said you can"
 	line "trade #MON with"
 
@@ -701,7 +717,7 @@ PokecomCenterAdminOfficeMobileGameboyKidText:
 	line "afford to lose."
 	done
 
-GoldenrodPokecomCenterPerson12Text: ; unreferenced
+PokecomCenterAdminOfficeMobileYoungster3Text:
 	text "I came over here"
 	line "when I got word"
 
@@ -853,5 +869,9 @@ PokecomCenterAdminOfficeMobile_MapEvents:
 	object_event  7, 29, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileScientist3Script, -1
 	object_event 16,  8, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileReceptionistScript, -1
 	object_event 10, 12, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileGameboyKidScript, -1
-	object_event 21,  5, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileLassScript, -1
+	object_event  4, 11, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileLassScript, -1
 	object_event 19, 12, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobilePokefanFScript, -1
+	object_event 27, 13, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileTeacherScript, -1
+	object_event 23,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileYoungsterScript, -1
+	object_event 21,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileYoungster2Script, -1
+	object_event  7, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileYoungster3Script, -1
