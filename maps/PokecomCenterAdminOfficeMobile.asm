@@ -871,7 +871,7 @@ PokecomCenterAdminOfficeMobile_MapEvents:
 	object_event 10, 12, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileGameboyKidScript, -1
 	object_event  4, 11, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileLassScript, -1
 	object_event 19, 12, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobilePokefanFScript, -1
-	object_event 27, 13, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileTeacherScript, -1
-	object_event 23,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileYoungsterScript, -1
-	object_event 21,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileYoungster2Script, -1
+	object_event 27, 13, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT 0, 0, -1, -1, 0, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileTeacherScript, -1
+	object_event 23,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT 0, 0, -1, -1, 0, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileYoungsterScript, -1
+	object_event 21,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT 0, 0, -1, -1, 0, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileYoungster2Script, -1
 	object_event  7, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokecomCenterAdminOfficeMobileYoungster3Script, -1
