@@ -6,11 +6,15 @@ My goal is to create a story based on the intro of Pokémon Crystal, why several
 
 ## Screenshots
 
-![intro](/screenshots/intro.png)
+![Intro](/screenshots/intro.png)
+![New Bark Town](/screenshots/newbark-town.png)
+![Cyndaquil](/screenshots/cyndaquil.png)
+![Totodile](/screenshots/totodile.png)
+![Chicorita](/screenshots/chikorita.png)
 ![Cherrygrove City](/screenshots/cherrygrove-city.png)
-![Ecrutak City](/screenshots/ecruteak-city.png)
-![Goldenrod City](/screenshots/goldenrod-city.png)
-![Olivine City](/screenshots/olivine-city.png)
+![Violet City](/screenshots/violet-city.png)
+![Route 35](/screenshots/route-35.png)
+![National Park](/screenshots/national-park.png)
 
 ## Setup
 
