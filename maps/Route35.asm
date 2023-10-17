@@ -7,6 +7,8 @@
 	const ROUTE35_FISHER
 	const ROUTE35_BUG_CATCHER
 	const ROUTE35_SUPER_NERD
+	const ROUTE35_LASS
+	const ROUTE35_SUPER_NERD2	
 	const ROUTE35_OFFICER
 	const ROUTE35_FRUIT_TREE
 	const ROUTE35_POKE_BALL
@@ -81,6 +83,12 @@ Route35PhoneFullM:
 Route35RematchM:
 	jumpstd RematchMScript
 	end
+	
+Route35LassScript:
+	jumptextfaceplayer Route35LassText
+
+Route35SuperNerd2Script:
+	jumptextfaceplayer Route35SuperNerd2Text	
 
 TrainerCamperIvan:
 	trainer CAMPER, IVAN, EVENT_BEAT_CAMPER_IVAN, CamperIvanSeenText, CamperIvanBeatenText, 0, .Script
@@ -273,6 +281,79 @@ Route35TMRollout:
 
 Route35FruitTree:
 	fruittree FRUITTREE_ROUTE_35
+	
+Route35VendingMachine:
+	opentext
+	writetext Route35VendingText
+.Start:
+	special PlaceMoneyTopRight
+	loadmenu .MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .FreshWater
+	ifequal 2, .SodaPop
+	ifequal 3, .Lemonade
+	closetext
+	end
+
+.FreshWater:
+	checkmoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem FRESH_WATER
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE
+	getitemname STRING_BUFFER_3, FRESH_WATER
+	sjump .VendItem
+
+.SodaPop:
+	checkmoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_SODA_POP_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem SODA_POP
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_SODA_POP_PRICE
+	getitemname STRING_BUFFER_3, SODA_POP
+	sjump .VendItem
+
+.Lemonade:
+	checkmoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_LEMONADE_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem LEMONADE
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_LEMONADE_PRICE
+	getitemname STRING_BUFFER_3, LEMONADE
+	sjump .VendItem
+
+.VendItem:
+	pause 10
+	playsound SFX_ENTER_DOOR
+	writetext Route35ClangText
+	promptbutton
+	itemnotify
+	sjump .Start
+
+.NotEnoughMoney:
+	writetext Route35VendingNoMoneyText
+	waitbutton
+	sjump .Start
+
+.NotEnoughSpace:
+	writetext Route35VendingNoSpaceText
+	waitbutton
+	sjump .Start
+
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 4 ; items
+	db "FRESH WATER  ¥{d:GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE}@"
+	db "SODA POP     ¥{d:GOLDENRODDEPTSTORE6F_SODA_POP_PRICE}@"
+	db "LEMONADE     ¥{d:GOLDENRODDEPTSTORE6F_LEMONADE_PRICE}@"
+	db "CANCEL@"	
 
 CamperIvanSeenText:
 	text "I've been getting"
@@ -386,6 +467,17 @@ JugglerIrwinAfterBattleText:
 	para "But your prowess"
 	line "electrified me!"
 	done
+	
+Route35LassText:
+        text "I love this place"
+        line "it's so peaceful."
+        done
+        
+Route35SuperNerd2Text:
+        text "This is the"
+        line "perfect place"
+        cont "for a date."
+        done        	
 
 BugCatcherArnieSeenText:
 	text "I'll go anywhere"
@@ -459,30 +551,57 @@ OfficerDirkPrettyToughText:
 Route35SignText:
 	text "ROUTE 35"
 	done
+	
+Route35VendingText:
+	text "A vending machine!"
+	line "Here's the menu."
+	done
+	
+Route35ClangText:
+	text "Clang! A can of"
+	line "@"
+	text_ram wStringBuffer3
+	text_start
+	cont "popped out!"
+	done
+	
+Route35VendingNoMoneyText:
+	text "Oops, not enough"
+	line "money."
+	done
 
+Route35VendingNoSpaceText:
+	text "There's no more"
+	line "room for stuff."
+	done	
+	
 Route35_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
 	warp_event  9, 33, ROUTE_35_GOLDENROD_GATE, 1
 	warp_event 10, 33, ROUTE_35_GOLDENROD_GATE, 2
-	warp_event  3,  5, ROUTE_35_NATIONAL_PARK_GATE, 3
+	warp_event  5,  5, ROUTE_35_NATIONAL_PARK_GATE, 3
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  1,  7, BGEVENT_READ, Route35Sign
+	bg_event  3,  7, BGEVENT_READ, Route35Sign
 	bg_event 11, 31, BGEVENT_READ, Route35Sign
+	bg_event 14, 17, BGEVENT_UP, Route35VendingMachine
+	bg_event 15, 17, BGEVENT_UP, Route35VendingMachine		
 
 	def_object_events
-	object_event  4, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperIvan, -1
-	object_event  8, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperElliot, -1
-	object_event  7, 20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerBrooke, -1
+	object_event  6, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperIvan, -1
+	object_event 10, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperElliot, -1
+	object_event  9, 20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerBrooke, -1
 	object_event 10, 26, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerKim, -1
-	object_event 14, 28, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerBirdKeeperBryan, -1
-	object_event  2, 10, SPRITE_FISHER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherWalt, -1
-	object_event 16,  7, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherArnie, -1
-	object_event  5, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerJugglerIrwin, -1
-	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
+	object_event 16, 28, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerBirdKeeperBryan, -1
+	object_event  4, 10, SPRITE_FISHER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherWalt, -1
+	object_event 18,  7, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherArnie, -1
+	object_event  7, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerJugglerIrwin, -1
+	object_event 12, 23, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route35LassScript, -1
+	object_event 15, 23, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route35SuperNerd2Script, -1
+	object_event  7,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
 	object_event  2, 25, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35FruitTree, -1
-	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT
+	object_event 15, 31, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT

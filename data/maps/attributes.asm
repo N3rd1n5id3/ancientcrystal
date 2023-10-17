@@ -102,12 +102,12 @@ ENDM
 	connection east, Route27, ROUTE_27, 0
 
 	map_attributes CherrygroveCity, CHERRYGROVE_CITY, $35, NORTH | EAST
-	connection north, Route30, ROUTE_30, 5
+	connection north, Route30, ROUTE_30, 4
 	connection east, Route29, ROUTE_29, 0
 
 	map_attributes VioletCity, VIOLET_CITY, $05, SOUTH | WEST | EAST
-	connection south, Route32, ROUTE_32, 0
-	connection west, Route36, ROUTE_36, 0
+	connection south, Route32, ROUTE_32, -1
+	connection west, Route36, ROUTE_36, 1
 	connection east, Route31, ROUTE_31, 9
 
 	map_attributes AzaleaTown, AZALEA_TOWN, $05, WEST | EAST
@@ -122,21 +122,21 @@ ENDM
 	connection south, Route34, ROUTE_34, 5
 
 	map_attributes OlivineCity, OLIVINE_CITY, $35, NORTH | WEST
-	connection north, Route39, ROUTE_39, 5
+	connection north, Route39, ROUTE_39, 4
 	connection west, Route40, ROUTE_40, 9
 
 	map_attributes EcruteakCity, ECRUTEAK_CITY, $05, SOUTH | WEST | EAST
-	connection south, Route37, ROUTE_37, 5
-	connection west, Route38, ROUTE_38, 5
+	connection south, Route37, ROUTE_37, 7
+	connection west, Route38, ROUTE_38, 4
 	connection east, Route42, ROUTE_42, 9
 
 	map_attributes MahoganyTown, MAHOGANY_TOWN, $71, NORTH | WEST | EAST
-	connection north, Route43, ROUTE_43, 0
+	connection north, Route43, ROUTE_43, -1
 	connection west, Route42, ROUTE_42, 0
 	connection east, Route44, ROUTE_44, 0
 
 	map_attributes LakeOfRage, LAKE_OF_RAGE, $05, SOUTH
-	connection south, Route43, ROUTE_43, 5
+	connection south, Route43, ROUTE_43, 4
 
 	map_attributes BlackthornCity, BLACKTHORN_CITY, $71, SOUTH | WEST
 	connection south, Route45, ROUTE_45, 0
@@ -161,15 +161,15 @@ ENDM
 	connection east, NewBarkTown, NEW_BARK_TOWN, 0
 
 	map_attributes Route30, ROUTE_30, $05, NORTH | SOUTH
-	connection north, Route31, ROUTE_31, -10
-	connection south, CherrygroveCity, CHERRYGROVE_CITY, -5
+	connection north, Route31, ROUTE_31, -9
+	connection south, CherrygroveCity, CHERRYGROVE_CITY, -4
 
 	map_attributes Route31, ROUTE_31, $05, SOUTH | WEST
-	connection south, Route30, ROUTE_30, 10
+	connection south, Route30, ROUTE_30, 9
 	connection west, VioletCity, VIOLET_CITY, -9
 
 	map_attributes Route32, ROUTE_32, $05, NORTH | SOUTH
-	connection north, VioletCity, VIOLET_CITY, 0
+	connection north, VioletCity, VIOLET_CITY, 1
 	connection south, Route33, ROUTE_33, 0
 
 	map_attributes Route33, ROUTE_33, $05, NORTH | WEST
@@ -181,24 +181,22 @@ ENDM
 	connection east, AzaleaTown, AZALEA_TOWN, 18
 
 	map_attributes Route35, ROUTE_35, $05, NORTH | SOUTH
-	connection north, Route36, ROUTE_36, 0
 	connection south, GoldenrodCity, GOLDENROD_CITY, -5
 
 	map_attributes Route36, ROUTE_36, $05, NORTH | SOUTH | EAST
 	connection north, Route37, ROUTE_37, 10
-	connection south, Route35, ROUTE_35, 0
-	connection east, VioletCity, VIOLET_CITY, 0
+	connection east, VioletCity, VIOLET_CITY, -1
 
 	map_attributes Route37, ROUTE_37, $05, NORTH | SOUTH
-	connection north, EcruteakCity, ECRUTEAK_CITY, -5
+	connection north, EcruteakCity, ECRUTEAK_CITY, -7
 	connection south, Route36, ROUTE_36, -10
 
 	map_attributes Route38, ROUTE_38, $05, WEST | EAST
 	connection west, Route39, ROUTE_39, 0
-	connection east, EcruteakCity, ECRUTEAK_CITY, -5
+	connection east, EcruteakCity, ECRUTEAK_CITY, -4
 
 	map_attributes Route39, ROUTE_39, $05, SOUTH | EAST
-	connection south, OlivineCity, OLIVINE_CITY, -5
+	connection south, OlivineCity, OLIVINE_CITY, -4
 	connection east, Route38, ROUTE_38, 0
 
 	map_attributes Route40, ROUTE_40, $35, SOUTH | EAST
@@ -214,8 +212,8 @@ ENDM
 	connection east, MahoganyTown, MAHOGANY_TOWN, 0
 
 	map_attributes Route43, ROUTE_43, $05, NORTH | SOUTH
-	connection north, LakeOfRage, LAKE_OF_RAGE, -5
-	connection south, MahoganyTown, MAHOGANY_TOWN, 0
+	connection north, LakeOfRage, LAKE_OF_RAGE, -4
+	connection south, MahoganyTown, MAHOGANY_TOWN, 1
 
 	map_attributes Route44, ROUTE_44, $71, WEST | EAST
 	connection west, MahoganyTown, MAHOGANY_TOWN, 0
@@ -462,7 +460,6 @@ ENDM
 	map_attributes OlivinePokecenter1F, OLIVINE_POKECENTER_1F, $00, 0
 	map_attributes OlivineGym, OLIVINE_GYM, $00, 0
 	map_attributes OlivineTimsHouse, OLIVINE_TIMS_HOUSE, $00, 0
-	map_attributes OlivineHouseBeta, OLIVINE_HOUSE_BETA, $00, 0
 	map_attributes OlivinePunishmentSpeechHouse, OLIVINE_PUNISHMENT_SPEECH_HOUSE, $00, 0
 	map_attributes OlivineGoodRodHouse, OLIVINE_GOOD_ROD_HOUSE, $00, 0
 	map_attributes OlivineCafe, OLIVINE_CAFE, $00, 0
@@ -479,8 +476,6 @@ ENDM
 	map_attributes UndergroundPath, UNDERGROUND_PATH, $00, 0
 	map_attributes RockTunnel1F, ROCK_TUNNEL_1F, $09, 0
 	map_attributes RockTunnelB1F, ROCK_TUNNEL_B1F, $09, 0
-	map_attributes SafariZoneFuchsiaGateBeta, SAFARI_ZONE_FUCHSIA_GATE_BETA, $00, 0
-	map_attributes SafariZoneBeta, SAFARI_ZONE_BETA, $13, 0
 	map_attributes VictoryRoad, VICTORY_ROAD, $1d, 0
 	map_attributes EcruteakTinTowerEntrance, ECRUTEAK_TIN_TOWER_ENTRANCE, $00, 0
 	map_attributes WiseTriosRoom, WISE_TRIOS_ROOM, $00, 0
@@ -498,18 +493,15 @@ ENDM
 	map_attributes BlackthornPokecenter1F, BLACKTHORN_POKECENTER_1F, $00, 0
 	map_attributes MoveDeletersHouse, MOVE_DELETERS_HOUSE, $00, 0
 	map_attributes CinnabarPokecenter1F, CINNABAR_POKECENTER_1F, $00, 0
-	map_attributes CinnabarPokecenter2FBeta, CINNABAR_POKECENTER_2F_BETA, $00, 0
 	map_attributes Route19FuchsiaGate, ROUTE_19_FUCHSIA_GATE, $00, 0
 	map_attributes SeafoamGym, SEAFOAM_GYM, $09, 0
 	map_attributes CeruleanGymBadgeSpeechHouse, CERULEAN_GYM_BADGE_SPEECH_HOUSE, $00, 0
 	map_attributes CeruleanPoliceStation, CERULEAN_POLICE_STATION, $00, 0
 	map_attributes CeruleanTradeSpeechHouse, CERULEAN_TRADE_SPEECH_HOUSE, $00, 0
 	map_attributes CeruleanPokecenter1F, CERULEAN_POKECENTER_1F, $00, 0
-	map_attributes CeruleanPokecenter2FBeta, CERULEAN_POKECENTER_2F_BETA, $00, 0
 	map_attributes CeruleanGym, CERULEAN_GYM, $00, 0
 	map_attributes CeruleanMart, CERULEAN_MART, $00, 0
 	map_attributes Route10Pokecenter1F, ROUTE_10_POKECENTER_1F, $00, 0
-	map_attributes Route10Pokecenter2FBeta, ROUTE_10_POKECENTER_2F_BETA, $00, 0
 	map_attributes PowerPlant, POWER_PLANT, $00, 0
 	map_attributes BillsHouse, BILLS_HOUSE, $00, 0
 	map_attributes AzaleaPokecenter1F, AZALEA_POKECENTER_1F, $00, 0
@@ -557,7 +549,6 @@ ENDM
 	map_attributes DayCare, DAY_CARE, $00, 0
 	map_attributes VermilionFishingSpeechHouse, VERMILION_FISHING_SPEECH_HOUSE, $00, 0
 	map_attributes VermilionPokecenter1F, VERMILION_POKECENTER_1F, $00, 0
-	map_attributes VermilionPokecenter2FBeta, VERMILION_POKECENTER_2F_BETA, $00, 0
 	map_attributes PokemonFanClub, POKEMON_FAN_CLUB, $00, 0
 	map_attributes VermilionMagnetTrainSpeechHouse, VERMILION_MAGNET_TRAIN_SPEECH_HOUSE, $00, 0
 	map_attributes VermilionMart, VERMILION_MART, $00, 0
@@ -573,7 +564,6 @@ ENDM
 	map_attributes PewterGym, PEWTER_GYM, $00, 0
 	map_attributes PewterMart, PEWTER_MART, $00, 0
 	map_attributes PewterPokecenter1F, PEWTER_POKECENTER_1F, $00, 0
-	map_attributes PewterPokecenter2FBeta, PEWTER_POKECENTER_2F_BETA, $00, 0
 	map_attributes PewterSnoozeSpeechHouse, PEWTER_SNOOZE_SPEECH_HOUSE, $00, 0
 	map_attributes OlivinePort, OLIVINE_PORT, $0a, 0
 	map_attributes VermilionPort, VERMILION_PORT, $0a, 0
@@ -599,11 +589,9 @@ ENDM
 	map_attributes FuchsiaGym, FUCHSIA_GYM, $00, 0
 	map_attributes BillsBrothersHouse, BILLS_BROTHERS_HOUSE, $00, 0
 	map_attributes FuchsiaPokecenter1F, FUCHSIA_POKECENTER_1F, $00, 0
-	map_attributes FuchsiaPokecenter2FBeta, FUCHSIA_POKECENTER_2F_BETA, $00, 0
 	map_attributes SafariZoneWardensHome, SAFARI_ZONE_WARDENS_HOME, $00, 0
 	map_attributes Route15FuchsiaGate, ROUTE_15_FUCHSIA_GATE, $00, 0
 	map_attributes LavenderPokecenter1F, LAVENDER_POKECENTER_1F, $00, 0
-	map_attributes LavenderPokecenter2FBeta, LAVENDER_POKECENTER_2F_BETA, $00, 0
 	map_attributes MrFujisHouse, MR_FUJIS_HOUSE, $00, 0
 	map_attributes LavenderSpeechHouse, LAVENDER_SPEECH_HOUSE, $00, 0
 	map_attributes LavenderNameRater, LAVENDER_NAME_RATER, $00, 0
@@ -633,7 +621,6 @@ ENDM
 	map_attributes CeladonMansionRoof, CELADON_MANSION_ROOF, $01, 0
 	map_attributes CeladonMansionRoofHouse, CELADON_MANSION_ROOF_HOUSE, $00, 0
 	map_attributes CeladonPokecenter1F, CELADON_POKECENTER_1F, $00, 0
-	map_attributes CeladonPokecenter2FBeta, CELADON_POKECENTER_2F_BETA, $00, 0
 	map_attributes CeladonGameCorner, CELADON_GAME_CORNER, $00, 0
 	map_attributes CeladonGameCornerPrizeRoom, CELADON_GAME_CORNER_PRIZE_ROOM, $00, 0
 	map_attributes CeladonGym, CELADON_GYM, $00, 0
@@ -661,7 +648,6 @@ ENDM
 	map_attributes TrainerHouseB1F, TRAINER_HOUSE_B1F, $00, 0
 	map_attributes ViridianMart, VIRIDIAN_MART, $00, 0
 	map_attributes ViridianPokecenter1F, VIRIDIAN_POKECENTER_1F, $00, 0
-	map_attributes ViridianPokecenter2FBeta, VIRIDIAN_POKECENTER_2F_BETA, $00, 0
 	map_attributes Route2NuggetHouse, ROUTE_2_NUGGET_HOUSE, $00, 0
 	map_attributes Route2Gate, ROUTE_2_GATE, $00, 0
 	map_attributes VictoryRoadGate, VICTORY_ROAD_GATE, $00, 0
@@ -678,7 +664,6 @@ ENDM
 	map_attributes SaffronGym, SAFFRON_GYM, $00, 0
 	map_attributes SaffronMart, SAFFRON_MART, $00, 0
 	map_attributes SaffronPokecenter1F, SAFFRON_POKECENTER_1F, $00, 0
-	map_attributes SaffronPokecenter2FBeta, SAFFRON_POKECENTER_2F_BETA, $00, 0
 	map_attributes MrPsychicsHouse, MR_PSYCHICS_HOUSE, $00, 0
 	map_attributes SaffronMagnetTrainStation, SAFFRON_MAGNET_TRAIN_STATION, $00, 0
 	map_attributes SilphCo1F, SILPH_CO_1F, $00, 0
