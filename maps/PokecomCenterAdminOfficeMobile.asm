@@ -55,8 +55,8 @@ PokecomCenterAdminOfficeMobileComputer1:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
-	db "#COM CLUB@" ; # COM CLUB
-	db "MOBILE CENTER@" ; MOBILE CENTER
+	db "PHONE USE@" ; Use phone
+	db "NO SERVICE@" ; Don't use phone
 	db "CANCEL@" ; QUIT
 
 PokecomCenterAdminOfficeMobileComputer2:
