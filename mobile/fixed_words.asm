@@ -2500,7 +2500,7 @@ EZChatString_SortByAlphabetical:
 
 EZChatString_SortByMenu:
 	db   "GROUP MODE";"しゅるいべつ　モード"  ; Category mode
-	next "ABC MODE@";"アイウエオ　　モード@" ; ABC mode
+	next "A to Z MODE@";"アイウエオ　　モード@" ; ABC mode
 
 EZChatDraw_SortByCharacter: ; Sort by Character Menu
 	call EZChat_ClearBottom12Rows
