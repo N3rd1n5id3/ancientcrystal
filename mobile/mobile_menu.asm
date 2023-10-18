@@ -105,7 +105,7 @@ MobileString1:
 	db   "CARD FOLDER"
 	next "MESSAGES"
 	next "PROFILE"
-	next "SETTINGS"
+	next "OPTION"
 	next "CANCEL"
 	db   "@"
 
