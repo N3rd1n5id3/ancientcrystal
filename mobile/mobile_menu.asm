@@ -103,7 +103,7 @@ Function49f16:
 
 MobileString1:
 	db   "Card Folder"
-	next "Messages"
+	next "Greetings"
 	next "Profile"
 	next "Option"
 	next "Cancel"
@@ -117,7 +117,7 @@ String_0x49fe9:
 
 String_0x4a004:
 	db   "Compose CARD and";"モバイルたいせんや　じぶんのめいしで"
-	next "battle messages.@";"つかう　あいさつ¯つくります@"
+	next "battle greetings.@";"つかう　あいさつ¯つくります@"
 
 String_0x4a026:
 	db   "Change your age";"あなた<NO>じゅうしょや　ねんれいの"
