@@ -6806,8 +6806,8 @@ Function11b03d:
 	call CopyBytes
 	ret
 
-.MaleString: db "MALE　"
-.FemaleString: db "FEMALE　"
+.MaleString: db "♂　"
+.FemaleString: db "♀　"
 
 Function11b082:
 	call Function11b242
