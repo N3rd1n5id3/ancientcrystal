@@ -1,5 +1,7 @@
 # Pokemon Ancient Crystal 
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G0KIDVD)
+
 A fork of pokecrystal designed to restore and localize Mobile Adapter functionality such as online battles and trades to Crystal using disassembled code from the Japanese ROM designed for use with Mobile System recreation projects like the REON Project.
 
 My goal is to create a story based on the intro of Pokémon Crystal, why several Unown communicating with Suicune over radio waves, alerting it to the Ruins of Alph? Play and you will find out.
